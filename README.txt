@@ -1,4 +1,4 @@
-
+This is my sandbox for adding debugging to SchoolMIPS. Project is based on ejtagproxy https://github.com/sergev/ejtagproxy.
 EJTAGproxy is a utility for debugging PIC32 microcontrollers with GDB
 via JTAG or ICSP adapter.  Supported adapters:
 
