@@ -1,0 +1,8 @@
+{
+    "files.associations": {
+        "mips.h": "c",
+        "hidapi.h": "c",
+        "errno.h": "c",
+        "stdint.h": "c"
+    }
+}

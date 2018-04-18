@@ -1,0 +1,35 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build gdbproxy",
+            "type": "shell",
+            "command": "gcc",
+            "args": [
+                "-g",
+                //"-o",
+                "adapter-mpsse.c",
+                "adapter-pickit2.c",
+                "adapter.h", 
+                "hidapi/hidapi.h",
+                "hidapi/hid-libusb.c",
+                "mips.h",
+                "ejtag.h",
+                "target-ejtag.c",
+                "proxy-mips.c",
+                "gdbproxy.c",
+                "rpmisc.c",
+                "-lusb",
+                "-lusb-1.0",
+                "-lrt",
+                "-lpthread",
+                "-o",
+                "SchoolMIPSdebug"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ]
+}
