@@ -1064,6 +1064,9 @@ static void handle_breakpoint_command(char * const in_buf,
     rp_write_retval(ret, out_buf);
 }
 
+
+FILE *file;
+
 int main (int argc, char **argv)
 {
     rp_target *t;
@@ -1079,6 +1082,10 @@ int main (int argc, char **argv)
     int more;
     int implemented;
     size_t in_len;
+
+    const char filename[] = "/home/vlasovdv0111/SchoolMIPSproxy/log";
+    file= fopen(filename, "a");
+    
 
     /* Option descriptors */
     static struct option long_options[] =

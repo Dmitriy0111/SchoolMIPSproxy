@@ -384,6 +384,8 @@ static const struct {
     { 0 }
 };
 
+extern FILE *file;
+
 #if defined (__CYGWIN32__) || defined (MINGW32)
 /*
  * Delay in milliseconds: Windows.
@@ -519,6 +521,8 @@ static void target_save_state (target_t *t)
             //fprintf (stderr, "DBS = %08x, %u watchpoints\n", dbs, t->nwatchpoints);
         }
         printf ("hardware: %u breakpoints, %u watchpoints\n",
+            t->nbpoints, t->nwatchpoints);
+        fprintf(file,"hardware: %u breakpoints, %u watchpoints\n",
             t->nbpoints, t->nwatchpoints);
     }
 }
@@ -658,6 +662,7 @@ target_t *target_open ()
     if (t->cpuid == 0 || t->cpuid == ~0) {
         /* Device not detected. */
         fprintf (stderr, "Bad CPUID=%08x.\n", t->cpuid);
+        fprintf(file, "Bad CPUID=%08x.\n", t->cpuid);
         t->adapter->close (t->adapter, 0);
         return 0;
     }
@@ -668,6 +673,7 @@ target_t *target_open ()
             if (microchip[i].devid == 0) {
                 /* Device not detected. */
                 fprintf (stderr, "Unknown CPUID=%08x.\n", t->cpuid);
+                fprintf(file, "Unknown CPUID=%08x.\n", t->cpuid);
                 t->adapter->close (t->adapter, 0);
                 return 0;
             }
@@ -676,6 +682,7 @@ target_t *target_open ()
         t->flash_kbytes = microchip[i].flash_kbytes;
         t->boot_kbytes = microchip[i].boot_kbytes;
         printf ("processor: %s\n", t->cpu_name);
+        fprintf(file, "processor: %s\n", t->cpu_name);
     } else {
         /* Read IMPCODE. */
         t->impcode = t->adapter->get_impcode (t->adapter);
@@ -684,7 +691,7 @@ target_t *target_open ()
         else
             t->cpu_name = "MIPS32";
     }
-
+    //fprintf (stderr, "CPUID=%08x.\n", t->cpuid);
     /* Stop the processor. */
     t->adapter->stop_cpu (t->adapter);
     target_save_state (t);
@@ -694,16 +701,19 @@ target_t *target_open ()
         t->prid = target_read_cop0_register (t, 15, 0);
         if (debug_level > 0)
             printf ("PRID = %08x\n", t->prid);
+            fprintf(file, "PRID = %08x\n", t->prid);
         for (i=0; (t->prid ^ devtab[i].devid) & 0x00ffff00; i++) {
             if (devtab[i].devid == 0) {
                 /* Device not detected. */
                 fprintf (stderr, "Unknown PRID=%08x.\n", t->prid);
+                fprintf(file, "Unknown PRID=%08x.\n", t->prid);
                 t->adapter->close (t->adapter, 0);
                 return 0;
             }
         }
         t->cpu_name = devtab[i].name;
         printf ("processor: %s\n", t->cpu_name);
+        fprintf(file,"processor: %s\n", t->cpu_name);
     }
 
     if (t->is_pic32) {
@@ -996,6 +1006,7 @@ unsigned target_read_word (target_t *t, unsigned addr)
     {
         /* Exception: bad address. */
         fprintf (stderr, "ERROR: cannot read address %08x\n", addr);
+        fprintf(file, "ERROR: cannot read address %08x\n", addr);
         t->restore_depc = 1;
         return 0;
     }
@@ -1068,6 +1079,7 @@ void target_read_block (target_t *t, unsigned addr,
         {
             /* Exception: bad address. */
             fprintf (stderr, "ERROR: cannot read address %08x\n", addr);
+            fprintf(file, "ERROR: cannot read address %08x\n", addr);
             memset (&data[nread], 0, 4*n);
             t->restore_depc = 1;
         }
@@ -1110,10 +1122,14 @@ void target_write_word (target_t *t, unsigned addr, unsigned word)
         ARRAY_SIZE(param_in), param_in, 0, 0))
     {
         fprintf (stderr, "ERROR: cannot write %08x to address %08x\n", word, addr);
+        fprintf(file, "ERROR: cannot write %08x to address %08x\n", word, addr);
         t->restore_depc = 1;
     }
     if (debug_level > 0)
+    {
         fprintf (stderr, "target_write_word: %08x to address %08x\n", word, addr);
+        fprintf(file, "target_write_word: %08x to address %08x\n", word, addr);
+    }
 }
 
 /*
@@ -1145,10 +1161,14 @@ void target_cache_flush (target_t *t, unsigned addr)
         ARRAY_SIZE(param_in), param_in, 0, 0))
     {
         fprintf (stderr, "ERROR: cannot flush cache at address %08x\n", addr);
+        fprintf(file, "ERROR: cannot flush cache at address %08x\n", addr);
         t->restore_depc = 1;
     }
     if (debug_level > 0)
+    {
         fprintf (stderr, "target_cache_flush: cache flush at %08x\n", addr);
+        fprintf(file, "target_cache_flush: cache flush at %08x\n", addr);
+    }
 }
 
 /*
@@ -1201,6 +1221,7 @@ void target_write_block (target_t *t, unsigned addr,
         nwords + 2, param_in, 0, 0))
     {
         fprintf (stderr, "ERROR: cannot write %u words to address %08x\n", nwords, addr);
+        fprintf(file, "ERROR: cannot write %u words to address %08x\n", nwords, addr);
         t->restore_depc = 1;
     }
 }
@@ -1337,8 +1358,12 @@ void target_add_break (target_t *t, unsigned addr, int type)
         target_write_word (t, EJTAG_IBM(i), 0x00000000);
         target_write_word (t, EJTAG_IBC(i), DBC_BE);
         if (debug_level > 0)
+        {
             fprintf (stderr, "target_add_break: set breakpoint #%d at %08x\n",
                      i, addr);
+            fprintf(file, "target_add_break: set breakpoint #%d at %08x\n",
+                     i, addr);
+        }
     } else {
         /* Data watchpoint. */
         if (t->nwatchpoints <= 0)
@@ -1384,8 +1409,12 @@ void target_add_break (target_t *t, unsigned addr, int type)
         target_write_word (t, EJTAG_DBC(i), control);
         target_write_word (t, EJTAG_DBV(i), 0);
         if (debug_level > 0)
+        {
             fprintf (stderr, "target_add_break: set %c-watchpoint #%d at %08x\n",
                      type, i, addr);
+            fprintf(file, "target_add_break: set %c-watchpoint #%d at %08x\n",
+                     type, i, addr);
+        }
     }
 }
 
@@ -1402,8 +1431,12 @@ void target_remove_break (target_t *t, unsigned addr)
             target_write_word (t, EJTAG_IBC(i), 0);
             t->bp_used[i] = 0;
             if (debug_level > 0)
+            {
                 fprintf (stderr, "target_remove_break: clear breakpoint #%d at %08x\n",
                          i, addr);
+                fprintf(file, "target_remove_break: clear breakpoint #%d at %08x\n",
+                         i, addr);
+            }
         }
     }
     for (i=0; i<t->nwatchpoints; i++) {
@@ -1412,8 +1445,12 @@ void target_remove_break (target_t *t, unsigned addr)
             target_write_word (t, EJTAG_DBC(i), 0);
             t->watch_used[i] = 0;
             if (debug_level > 0)
+            {
                 fprintf (stderr, "target_remove_break: clear watchpoint #%d at %08x\n",
                          i, addr);
+                fprintf(file, "target_remove_break: clear watchpoint #%d at %08x\n",
+                         i, addr);
+            }
         }
     }
 }

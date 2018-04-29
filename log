@@ -1,0 +1,597 @@
+mpsse_reset (trst=0, sysrst=0) output=0308, direction: 0f1b
+Dangerous Prototypes Bus Blaster: divisor: 2999
+Dangerous Prototypes Bus Blaster: clock rate 0.0 MHz
+mpsse_reset (trst=1, sysrst=0) output=0208, direction: 0f1b
+mpsse_reset (trst=0, sysrst=0) output=0308, direction: 0f1b
+Dangerous Prototypes Bus Blaster: idcode 000f1005
+Dangerous Prototypes Bus Blaster: impcode a0404000
+stop_cpu: control = 4004c008
+exec: ctl = 4004c008
+exec: address = ff200204
+exec: read address ff200204 -> 3c02ff20
+exec: ctl = 4004c008
+exec: address = ff200208
+exec: read address ff200208 -> 34422000
+exec: ctl = 4004c008
+exec: address = ff20020c
+exec: read address ff20020c -> ac400000
+exec: ctl = 4004c008
+exec: address = ff200210
+exec: read address ff200210 -> ac410004
+exec: ctl = 400cc008
+exec: address = ff202000
+exec: write address ff202000 := 00000000
+exec: ctl = 4004c008
+exec: address = ff200214
+exec: read address ff200214 -> ac4f003c
+exec: ctl = 400cc008
+exec: address = ff202004
+exec: write address ff202004 := 00000000
+exec: ctl = 4004c008
+exec: address = ff200218
+exec: read address ff200218 -> 4002f800
+exec: ctl = 400cc008
+exec: address = ff20203c
+exec: write address ff20203c := 00000000
+exec: ctl = 4004c008
+exec: address = ff20021c
+exec: read address ff20021c -> 408ff800
+exec: ctl = 4004c008
+exec: address = ff200220
+exec: read address ff200220 -> 3c0fff20
+exec: ctl = 4004c008
+exec: address = ff200224
+exec: read address ff200224 -> 35ef4000
+exec: ctl = 4004c008
+exec: address = ff200228
+exec: read address ff200228 -> ade10000
+exec: ctl = 4004c008
+exec: address = ff20022c
+exec: read address ff20022c -> ade20000
+exec: ctl = 400cc008
+exec: address = ff204000
+exec: write address ff204000 := 00000000
+exec: ctl = 4004c008
+exec: address = ff200230
+exec: read address ff200230 -> 3c01ff20
+exec: ctl = 400cc008
+exec: address = ff204000
+exec: write address ff204000 := 00000000
+exec: ctl = 4004c008
+exec: address = ff200234
+exec: read address ff200234 -> 34212000
+exec: ctl = 4004c008
+exec: address = ff200238
+exec: read address ff200238 -> ac220008
+exec: ctl = 4004c008
+exec: address = ff20023c
+exec: read address ff20023c -> ac23000c
+exec: ctl = 400cc008
+exec: address = ff202008
+exec: write address ff202008 := 00000000
+exec: ctl = 4004c008
+exec: address = ff200240
+exec: read address ff200240 -> ac240010
+exec: ctl = 400cc008
+exec: address = ff20200c
+exec: write address ff20200c := 00000000
+exec: ctl = 4004c008
+exec: address = ff200244
+exec: read address ff200244 -> ac250014
+exec: ctl = 400cc008
+exec: address = ff202010
+exec: write address ff202010 := 00000000
+exec: ctl = 4004c008
+exec: address = ff200248
+exec: read address ff200248 -> ac260018
+exec: ctl = 400cc008
+exec: address = ff202014
+exec: write address ff202014 := 00000000
+exec: ctl = 4004c008
+exec: address = ff20024c
+exec: read address ff20024c -> ac27001c
+exec: ctl = 400cc008
+exec: address = ff202018
+exec: write address ff202018 := 00000000
+exec: ctl = 4004c008
+exec: address = ff200250
+exec: read address ff200250 -> ac280020
+exec: ctl = 400cc008
+exec: address = ff20201c
+exec: write address ff20201c := 00000000
+exec: ctl = 4004c008
+exec: address = ff200254
+exec: read address ff200254 -> ac290024
+exec: ctl = 400cc008
+exec: address = ff202020
+exec: write address ff202020 := 00000000
+exec: ctl = 4004c008
+exec: address = ff200258
+exec: read address ff200258 -> ac2a0028
+exec: ctl = 400cc008
+exec: address = ff202024
+exec: write address ff202024 := 00000000
+exec: ctl = 4004c008
+exec: address = ff20025c
+exec: read address ff20025c -> ac2b002c
+exec: ctl = 400cc008
+exec: address = ff202028
+exec: write address ff202028 := 00000000
+exec: ctl = 4004c008
+exec: address = ff200260
+exec: read address ff200260 -> ac2c0030
+exec: ctl = 400cc008
+exec: address = ff20202c
+exec: write address ff20202c := 00000000
+exec: ctl = 4004c008
+exec: address = ff200264
+exec: read address ff200264 -> ac2d0034
+exec: ctl = 400cc008
+exec: address = ff202030
+exec: write address ff202030 := 00000000
+exec: ctl = 4004c008
+exec: address = ff200268
+exec: read address ff200268 -> ac2e0038
+exec: ctl = 400cc008
+exec: address = ff202034
+exec: write address ff202034 := 00000000
+exec: ctl = 4004c008
+exec: address = ff20026c
+exec: read address ff20026c -> ac300040
+exec: ctl = 400cc008
+exec: address = ff202038
+exec: write address ff202038 := 00000000
+exec: ctl = 4004c008
+exec: address = ff200270
+exec: read address ff200270 -> ac310044
+exec: ctl = 400cc008
+exec: address = ff202040
+exec: write address ff202040 := 00000000
+exec: ctl = 4004c008
+exec: address = ff200274
+exec: read address ff200274 -> ac320048
+exec: ctl = 400cc008
+exec: address = ff202044
+exec: write address ff202044 := 00000000
+exec: ctl = 4004c008
+exec: address = ff200278
+exec: read address ff200278 -> ac33004c
+exec: ctl = 400cc008
+exec: address = ff202048
+exec: write address ff202048 := 00000000
+exec: ctl = 4004c008
+exec: address = ff20027c
+exec: read address ff20027c -> ac340050
+exec: ctl = 400cc008
+exec: address = ff20204c
+exec: write address ff20204c := 00000000
+exec: ctl = 4004c008
+exec: address = ff200280
+exec: read address ff200280 -> ac350054
+exec: ctl = 400cc008
+exec: address = ff202050
+exec: write address ff202050 := 00000000
+exec: ctl = 4004c008
+exec: address = ff200284
+exec: read address ff200284 -> ac360058
+exec: ctl = 400cc008
+exec: address = ff202054
+exec: write address ff202054 := 00000000
+exec: ctl = 4004c008
+exec: address = ff200288
+exec: read address ff200288 -> ac37005c
+exec: ctl = 400cc008
+exec: address = ff202058
+exec: write address ff202058 := 00000000
+exec: ctl = 4004c008
+exec: address = ff20028c
+exec: read address ff20028c -> ac380060
+exec: ctl = 400cc008
+exec: address = ff20205c
+exec: write address ff20205c := 00000000
+exec: ctl = 4004c008
+exec: address = ff200290
+exec: read address ff200290 -> ac390064
+exec: ctl = 400cc008
+exec: address = ff202060
+exec: write address ff202060 := 00000000
+exec: ctl = 4004c008
+exec: address = ff200294
+exec: read address ff200294 -> ac3a0068
+exec: ctl = 400cc008
+exec: address = ff202064
+exec: write address ff202064 := 00000000
+exec: ctl = 4004c008
+exec: address = ff200298
+exec: read address ff200298 -> ac3b006c
+exec: ctl = 400cc008
+exec: address = ff202068
+exec: write address ff202068 := 00000000
+exec: ctl = 4004c008
+exec: address = ff20029c
+exec: read address ff20029c -> ac3c0070
+exec: ctl = 400cc008
+exec: address = ff20206c
+exec: write address ff20206c := 00000000
+exec: ctl = 4004c008
+exec: address = ff2002a0
+exec: read address ff2002a0 -> ac3d0074
+exec: ctl = 400cc008
+exec: address = ff202070
+exec: write address ff202070 := 00000000
+exec: ctl = 4004c008
+exec: address = ff2002a4
+exec: read address ff2002a4 -> ac3e0078
+exec: ctl = 400cc008
+exec: address = ff202074
+exec: write address ff202074 := 00000000
+exec: ctl = 4004c008
+exec: address = ff2002a8
+exec: read address ff2002a8 -> ac3f007c
+exec: ctl = 400cc008
+exec: address = ff202078
+exec: write address ff202078 := 00000000
+exec: ctl = 4004c008
+exec: address = ff2002ac
+exec: read address ff2002ac -> 40026000
+exec: ctl = 400cc008
+exec: address = ff20207c
+exec: write address ff20207c := 00000000
+exec: ctl = 4004c008
+exec: address = ff2002b0
+exec: read address ff2002b0 -> ac220080
+exec: ctl = 4004c008
+exec: address = ff2002b4
+exec: read address ff2002b4 -> 00001012
+exec: ctl = 400cc008
+exec: address = ff202080
+exec: write address ff202080 := 00500006
+exec: ctl = 4004c008
+exec: address = ff2002b8
+exec: read address ff2002b8 -> ac220084
+exec: ctl = 4004c008
+exec: address = ff2002bc
+exec: read address ff2002bc -> 00001010
+exec: ctl = 400cc008
+exec: address = ff202084
+exec: write address ff202084 := 00000000
+exec: ctl = 4004c008
+exec: address = ff2002c0
+exec: read address ff2002c0 -> ac220088
+exec: ctl = 4004c008
+exec: address = ff2002c4
+exec: read address ff2002c4 -> 40024000
+exec: ctl = 400cc008
+exec: address = ff202088
+exec: write address ff202088 := 00000000
+exec: ctl = 4004c008
+exec: address = ff2002c8
+exec: read address ff2002c8 -> ac22008c
+exec: ctl = 4004c008
+exec: address = ff2002cc
+exec: read address ff2002cc -> 40026800
+exec: ctl = 400cc008
+exec: address = ff20208c
+exec: write address ff20208c := c0000000
+exec: ctl = 4004c008
+exec: address = ff2002d0
+exec: read address ff2002d0 -> ac220090
+exec: ctl = 4004c008
+exec: address = ff2002d4
+exec: read address ff2002d4 -> 4002c000
+exec: ctl = 400cc008
+exec: address = ff202090
+exec: write address ff202090 := 00000008
+exec: ctl = 4004c008
+exec: address = ff2002d8
+exec: read address ff2002d8 -> ac220094
+exec: ctl = 4004c008
+exec: address = ff2002dc
+exec: read address ff2002dc -> 8de20000
+exec: ctl = 400cc008
+exec: address = ff202094
+exec: write address ff202094 := bfc8fb48
+exec: ctl = 4004c008
+exec: address = ff2002e0
+exec: read address ff2002e0 -> 8de10000
+exec: ctl = 4004c008
+exec: address = ff204000
+exec: read address ff204000 -> 00000000
+exec: ctl = 4004c008
+exec: address = ff2002e4
+exec: read address ff2002e4 -> 1000ffc6
+exec: ctl = 4004c008
+exec: address = ff204000
+exec: read address ff204000 -> 00000000
+exec: ctl = 4004c008
+exec: address = ff2002e8
+exec: read address ff2002e8 -> 400ff800
+exec: ctl = 4004c008
+exec: address = ff200200
+exec: ctl = 4004c008
+exec: address = ff200200
+exec: read address ff200200 -> 408ff800
+exec: ctl = 4004c008
+exec: address = ff200204
+exec: read address ff200204 -> 3c0fff20
+exec: ctl = 4004c008
+exec: address = ff200208
+exec: read address ff200208 -> 35ef4000
+exec: ctl = 4004c008
+exec: address = ff20020c
+exec: read address ff20020c -> ade80000
+exec: ctl = 4004c008
+exec: address = ff200210
+exec: read address ff200210 -> 8de8d000
+exec: ctl = 400cc008
+exec: address = ff204000
+exec: write address ff204000 := 00000000
+exec: ctl = 4004c008
+exec: address = ff200214
+exec: read address ff200214 -> 8d080000
+exec: ctl = 4004c008
+exec: address = ff201000
+exec: read address ff201000 -> ff300000
+exec: ctl = 4004c008
+exec: address = ff200218
+exec: read address ff200218 -> ade8e000
+exec: ctl = 4004c008
+exec: address = ff20021c
+exec: read address ff20021c -> 8de80000
+exec: ctl = 400cc008
+exec: address = ff202000
+exec: write address ff202000 := 0047c21b
+exec: ctl = 4004c008
+exec: address = ff200220
+exec: read address ff200220 -> 1000fff7
+exec: ctl = 4004c008
+exec: address = ff204000
+exec: read address ff204000 -> 00000000
+exec: ctl = 4004c008
+exec: address = ff200224
+exec: read address ff200224 -> 400ff800
+exec: ctl = 4004c008
+exec: address = ff200200
+exec: ctl = 4004c008
+exec: address = ff200200
+exec: read address ff200200 -> 408ff800
+exec: ctl = 4004c008
+exec: address = ff200204
+exec: read address ff200204 -> 3c0fff20
+exec: ctl = 4004c008
+exec: address = ff200208
+exec: read address ff200208 -> 35ef4000
+exec: ctl = 4004c008
+exec: address = ff20020c
+exec: read address ff20020c -> ade80000
+exec: ctl = 4004c008
+exec: address = ff200210
+exec: read address ff200210 -> 8de8d000
+exec: ctl = 400cc008
+exec: address = ff204000
+exec: write address ff204000 := 00000000
+exec: ctl = 4004c008
+exec: address = ff200214
+exec: read address ff200214 -> 8d080000
+exec: ctl = 4004c008
+exec: address = ff201000
+exec: read address ff201000 -> ff301000
+exec: ctl = 4004c008
+exec: address = ff200218
+exec: read address ff200218 -> ade8e000
+exec: ctl = 4004c008
+exec: address = ff20021c
+exec: read address ff20021c -> 8de80000
+exec: ctl = 400cc008
+exec: address = ff202000
+exec: write address ff202000 := 42000000
+exec: ctl = 4004c008
+exec: address = ff200220
+exec: read address ff200220 -> 1000fff7
+exec: ctl = 4004c008
+exec: address = ff204000
+exec: read address ff204000 -> 00000000
+exec: ctl = 4004c008
+exec: address = ff200224
+exec: read address ff200224 -> 400ff800
+exec: ctl = 4004c008
+exec: address = ff200200
+exec: ctl = 4004c008
+exec: address = ff200200
+exec: read address ff200200 -> 408ff800
+exec: ctl = 4004c008
+exec: address = ff200204
+exec: read address ff200204 -> 3c0fff20
+exec: ctl = 4004c008
+exec: address = ff200208
+exec: read address ff200208 -> 35ef4000
+exec: ctl = 4004c008
+exec: address = ff20020c
+exec: read address ff20020c -> ade80000
+exec: ctl = 4004c008
+exec: address = ff200210
+exec: read address ff200210 -> ade90000
+exec: ctl = 400cc008
+exec: address = ff204000
+exec: write address ff204000 := 00000000
+exec: ctl = 4004c008
+exec: address = ff200214
+exec: read address ff200214 -> 8de8d004
+exec: ctl = 400cc008
+exec: address = ff204000
+exec: write address ff204000 := 00000000
+exec: ctl = 4004c008
+exec: address = ff200218
+exec: read address ff200218 -> 8de9d000
+exec: ctl = 4004c008
+exec: address = ff201004
+exec: read address ff201004 -> 00000000
+exec: ctl = 4004c008
+exec: address = ff20021c
+exec: read address ff20021c -> ad280000
+exec: ctl = 4004c008
+exec: address = ff201000
+exec: read address ff201000 -> ff301000
+exec: ctl = 4004c008
+exec: address = ff200220
+exec: read address ff200220 -> 8de90000
+exec: ctl = 4004c008
+exec: address = ff200224
+exec: read address ff200224 -> 8de80000
+exec: ctl = 4004c008
+exec: address = ff204000
+exec: read address ff204000 -> 00000000
+exec: ctl = 4004c008
+exec: address = ff200228
+exec: read address ff200228 -> 1000fff5
+exec: ctl = 4004c008
+exec: address = ff204000
+exec: read address ff204000 -> 00000000
+exec: ctl = 4004c008
+exec: address = ff20022c
+exec: read address ff20022c -> 400ff800
+exec: ctl = 4004c008
+exec: address = ff200200
+target_write_word: 00000000 to address ff301000
+exec: ctl = 4004c008
+exec: address = ff200200
+exec: read address ff200200 -> 408ff800
+exec: ctl = 4004c008
+exec: address = ff200204
+exec: read address ff200204 -> 3c0fff20
+exec: ctl = 4004c008
+exec: address = ff200208
+exec: read address ff200208 -> 35ef4000
+exec: ctl = 4004c008
+exec: address = ff20020c
+exec: read address ff20020c -> ade80000
+exec: ctl = 4004c008
+exec: address = ff200210
+exec: read address ff200210 -> 8de8d000
+exec: ctl = 400cc008
+exec: address = ff204000
+exec: write address ff204000 := 00000000
+exec: ctl = 4004c008
+exec: address = ff200214
+exec: read address ff200214 -> 8d080000
+exec: ctl = 4004c008
+exec: address = ff201000
+exec: read address ff201000 -> ff302000
+exec: ctl = 4004c008
+exec: address = ff200218
+exec: read address ff200218 -> ade8e000
+exec: ctl = 4004c008
+exec: address = ff20021c
+exec: read address ff20021c -> 8de80000
+exec: ctl = 400cc008
+exec: address = ff202000
+exec: write address ff202000 := 41000000
+exec: ctl = 4004c008
+exec: address = ff200220
+exec: read address ff200220 -> 1000fff7
+exec: ctl = 4004c008
+exec: address = ff204000
+exec: read address ff204000 -> 00000000
+exec: ctl = 4004c008
+exec: address = ff200224
+exec: read address ff200224 -> 400ff800
+exec: ctl = 4004c008
+exec: address = ff200200
+exec: ctl = 4004c008
+exec: address = ff200200
+exec: read address ff200200 -> 408ff800
+exec: ctl = 4004c008
+exec: address = ff200204
+exec: read address ff200204 -> 3c0fff20
+exec: ctl = 4004c008
+exec: address = ff200208
+exec: read address ff200208 -> 35ef4000
+exec: ctl = 4004c008
+exec: address = ff20020c
+exec: read address ff20020c -> ade80000
+exec: ctl = 4004c008
+exec: address = ff200210
+exec: read address ff200210 -> ade90000
+exec: ctl = 400cc008
+exec: address = ff204000
+exec: write address ff204000 := 00000000
+exec: ctl = 4004c008
+exec: address = ff200214
+exec: read address ff200214 -> 8de8d004
+exec: ctl = 400cc008
+exec: address = ff204000
+exec: write address ff204000 := 00000000
+exec: ctl = 4004c008
+exec: address = ff200218
+exec: read address ff200218 -> 8de9d000
+exec: ctl = 4004c008
+exec: address = ff201004
+exec: read address ff201004 -> 00000000
+exec: ctl = 4004c008
+exec: address = ff20021c
+exec: read address ff20021c -> ad280000
+exec: ctl = 4004c008
+exec: address = ff201000
+exec: read address ff201000 -> ff302000
+exec: ctl = 4004c008
+exec: address = ff200220
+exec: read address ff200220 -> 8de90000
+exec: ctl = 4004c008
+exec: address = ff200224
+exec: read address ff200224 -> 8de80000
+exec: ctl = 4004c008
+exec: address = ff204000
+exec: read address ff204000 -> 00000000
+exec: ctl = 4004c008
+exec: address = ff200228
+exec: read address ff200228 -> 1000fff5
+exec: ctl = 4004c008
+exec: address = ff204000
+exec: read address ff204000 -> 00000000
+exec: ctl = 4004c008
+exec: address = ff20022c
+exec: read address ff20022c -> 400ff800
+exec: ctl = 4004c008
+exec: address = ff200200
+target_write_word: 00000000 to address ff302000
+hardware: 2 breakpoints, 1 watchpoints
+exec: ctl = 4004c008
+exec: address = ff200200
+exec: read address ff200200 -> 408ff800
+exec: ctl = 4004c008
+exec: address = ff200204
+exec: read address ff200204 -> 3c0fff20
+exec: ctl = 4004c008
+exec: address = ff200208
+exec: read address ff200208 -> 35ef4000
+exec: ctl = 4004c008
+exec: address = ff20020c
+exec: read address ff20020c -> ade80000
+exec: ctl = 4004c008
+exec: address = ff200210
+exec: read address ff200210 -> 40087800
+exec: ctl = 400cc008
+exec: address = ff204000
+exec: write address ff204000 := 00000000
+exec: ctl = 4004c008
+exec: address = ff200214
+exec: read address ff200214 -> ade8e000
+exec: ctl = 4004c008
+exec: address = ff200218
+exec: read address ff200218 -> 8de80000
+exec: ctl = 400cc008
+exec: address = ff202000
+exec: write address ff202000 := 00019e60
+exec: ctl = 4004c008
+exec: address = ff20021c
+exec: read address ff20021c -> 1000fff8
+exec: ctl = 4004c008
+exec: address = ff204000
+exec: read address ff204000 -> 00000000
+exec: ctl = 4004c008
+exec: address = ff200220
+exec: read address ff200220 -> 400ff800
+exec: ctl = 4004c008
+exec: address = ff200200
+PRID = 00019e60
+processor: MIPS Technologies M14KEc
