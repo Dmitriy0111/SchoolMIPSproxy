@@ -37,7 +37,7 @@
 #include <errno.h>
 
 #include "adapter.h"
-#include "/home/vlasovdv0111/ejtagproxy-master/hidapi/hidapi.h"
+#include "/home/vlasovdv0111/SchoolMIPSproxy/hidapi/hidapi.h"
 #include "pickit2.h"
 #include "mips.h"
 #include "ejtag.h"

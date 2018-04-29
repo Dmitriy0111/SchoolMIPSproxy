@@ -44,6 +44,8 @@
 #include "mips.h"
 #include "ejtag.h"
 
+extern FILE *file;
+
 typedef struct {
     /* Common part */
     adapter_t adapter;
@@ -140,7 +142,7 @@ static void bulk_write (mpsse_adapter_t *a, unsigned char *output, int nbytes)
 {
     int bytes_written;
 
-    if (debug_level > 1) {
+    if (debug_level > 4) {
         int i;
         fprintf (stderr, "usb bulk write %d bytes:", nbytes);
         for (i=0; i<nbytes; i++)
@@ -185,7 +187,7 @@ static void mpsse_flush_output (mpsse_adapter_t *a)
             fprintf (stderr, "usb bulk read failed\n");
             exit (-1);
         }
-        if (debug_level > 1) {
+        if (debug_level > 4) {
             if (n != a->bytes_to_read + 2)
                 fprintf (stderr, "usb bulk read %d bytes of %d\n",
                     n, a->bytes_to_read - bytes_read + 2);
@@ -203,7 +205,7 @@ static void mpsse_flush_output (mpsse_adapter_t *a)
             bytes_read += n - 2;
         }
     }
-    if (debug_level > 1) {
+    if (debug_level > 4) {
         int i;
         fprintf (stderr, "mpsse_flush_output received %d bytes:", a->bytes_to_read);
         for (i=0; i<a->bytes_to_read; i++)
@@ -405,8 +407,12 @@ static void mpsse_reset (mpsse_adapter_t *a, int trst, int sysrst, int led)
     bulk_write (a, buf, 3);
 
     if (debug_level)
+    {
+        fprintf(file, "mpsse_reset (trst=%d, sysrst=%d) output=%04x, direction: %04x\n",
+            trst, sysrst, output, direction);
         fprintf (stderr, "mpsse_reset (trst=%d, sysrst=%d) output=%04x, direction: %04x\n",
             trst, sysrst, output, direction);
+    }
 }
 
 /*
@@ -420,7 +426,10 @@ static void mpsse_speed (mpsse_adapter_t *a, int khz)
     if (divisor < 0)
         divisor = 0;
     if (debug_level)
+    {
     	fprintf (stderr, "%s: divisor: %u\n", a->adapter.name, divisor);
+        fprintf(file, "%s: divisor: %u\n", a->adapter.name, divisor);
+    }
 
     if (a->mhz > 6) {
         /* Use 30MHz master clock (disable divide by 5). */
@@ -443,6 +452,8 @@ static void mpsse_speed (mpsse_adapter_t *a, int khz)
     if (debug_level) {
         khz = (a->mhz * 2000 / (divisor + 1) + 1) / 2;
         fprintf (stderr, "%s: clock rate %.1f MHz\n",
+            a->adapter.name, khz / 1000.0);
+        fprintf(file, "%s: clock rate %.1f MHz\n",
             a->adapter.name, khz / 1000.0);
     }
 }
@@ -493,7 +504,10 @@ static unsigned mpsse_get_idcode (adapter_t *adapter)
     idcode = mpsse_recv (a);
 
     if (debug_level > 0)
+    {
         fprintf (stderr, "%s: idcode %08x\n", a->adapter.name, idcode);
+        fprintf(file, "%s: idcode %08x\n", a->adapter.name, idcode);
+    }
     return idcode;
 }
 
@@ -513,7 +527,10 @@ static unsigned mpsse_get_impcode (adapter_t *adapter)
     impcode = mpsse_recv (a);
 
     if (debug_level > 0)
+    {
         fprintf (stderr, "%s: impcode %08x\n", a->adapter.name, impcode);
+        fprintf(file, "%s: impcode %08x\n", a->adapter.name, impcode);
+    }
     return impcode;
 }
 
@@ -552,9 +569,13 @@ static void mpsse_reset_cpu (adapter_t *adapter)
 
     ctl = mpsse_recv (a);
     if (debug_level > 0)
+    {
         fprintf (stderr, "mpsse_reset_cpu: control = %08x\n", ctl);
+        fprintf(file, "mpsse_reset_cpu: control = %08x\n", ctl);
+    }
     if (! (ctl & CONTROL_ROCC)) {
         fprintf (stderr, "mpsse_reset_cpu: reset failed\n");
+        fprintf(file, "mpsse_reset_cpu: reset failed\n");
         exit (-1);
     }
 }
@@ -596,10 +617,16 @@ static void mpsse_stop_cpu (adapter_t *adapter)
 
         ctl = mpsse_recv (a);
         if (debug_level > 1)
+        {
             fprintf (stderr, "stop_cpu: control = %08x\n", ctl);
+            fprintf(file, "stop_cpu: control = %08x\n", ctl);
+            fflush(file);
+        }
 
         if (ctl & CONTROL_ROCC) {
             fprintf (stderr, "processor: reset occured\n");
+            fprintf(file, "processor: reset occured\n");
+            fflush(file);
         }
     }
 }
@@ -640,10 +667,15 @@ static void pracc_exec_read (mpsse_adapter_t *a, unsigned address)
     {
         fprintf (stderr, "%s: error reading unexpected address %08x\n",
             a->adapter.name, address);
+        fprintf(file, "%s: error reading unexpected address %08x\n",
+            a->adapter.name, address);
         exit (-1);
     }
     if (debug_level > 1)
+    {
         fprintf (stderr, "exec: read address %08x -> %08x\n", address, data);
+        fprintf(file, "exec: read address %08x -> %08x\n", address, data);
+    }
 
     /* Send the data out */
     mpsse_send (a, 1, 1, 5, ETAP_DATA, 0);
@@ -695,10 +727,15 @@ static void pracc_exec_write (mpsse_adapter_t *a, unsigned address)
     {
         fprintf (stderr, "%s: error writing unexpected address %08x\n",
             a->adapter.name, address);
+        fprintf(file, "%s: error writing unexpected address %08x\n",
+            a->adapter.name, address);
         exit (-1);
     }
     if (debug_level > 1)
+    {
         fprintf (stderr, "exec: write address %08x := %08x\n", address, data);
+        fprintf(file, "exec: write address %08x := %08x\n", address, data);
+    }
 }
 
 /*
@@ -735,7 +772,10 @@ static int mpsse_exec (adapter_t *adapter, int stay_in_debug_mode,
             mpsse_send (a, 0, 0, 32, a->control, 1);
             ctl = mpsse_recv (a);
             if (debug_level > 1)
+            {
                 fprintf (stderr, "exec: ctl = %08x\n", ctl);
+                fprintf(file, "exec: ctl = %08x\n", ctl);
+            }
             if (ctl & CONTROL_PRACC)
                 break;
 
@@ -750,7 +790,10 @@ static int mpsse_exec (adapter_t *adapter, int stay_in_debug_mode,
         mpsse_send (a, 0, 0, 32, 0, 1);
         address = mpsse_recv (a);
         if (debug_level > 1)
+        {
             fprintf (stderr, "exec: address = %08x\n", address);
+            fprintf(file, "exec: address = %08x\n", address);
+        }
 
         /* Check for read or write */
         if (ctl & CONTROL_PRNW) {
@@ -785,6 +828,7 @@ adapter_t *adapter_open_mpsse (void)
     a = calloc (1, sizeof (*a));
     if (! a) {
         fprintf (stderr, "adapter_open_mpsse: out of memory\n");
+        fprintf(file, "adapter_open_mpsse: out of memory\n");
         return 0;
     }
     usb_init();
@@ -857,6 +901,7 @@ found:
     a->usbdev = usb_open (dev);
     if (! a->usbdev) {
         fprintf (stderr, "%s: usb_open() failed\n", a->adapter.name);
+        fprintf(file, "%s: usb_open() failed\n", a->adapter.name);
         free (a);
         return 0;
     }
@@ -944,7 +989,7 @@ failed:
     mpsse_reset (a, 0, 0, 1);
 
     /* By default, use 1MHz speed. */
-    int khz = 1;
+    int khz = 10;
     mpsse_speed (a, khz);
 
     /* Disable TDI to TDO loopback. */
@@ -969,13 +1014,20 @@ failed:
         mpsse_send (a, 0, 0, 8, MCHP_STATUS, 1);
         unsigned status = mpsse_recv (a);
         if (debug_level > 0)
+        {
             fprintf (stderr, "%s: status %04x\n", a->adapter.name, status);
+            fprintf(file, "%s: status %04x\n", a->adapter.name, status);
+        }
         if (status & MCHP_STATUS_DEVRST)
+        {
             fprintf (stderr, "%s: processor is in reset mode\n", a->adapter.name);
+            fprintf(file, "%s: processor is in reset mode\n", a->adapter.name);
+        }
         if ((status & ~MCHP_STATUS_DEVRST) !=
             (MCHP_STATUS_CPS | MCHP_STATUS_CFGRDY | MCHP_STATUS_FAEN))
         {
             fprintf (stderr, "%s: invalid status = %04x\n", a->adapter.name, status);
+            fprintf(file, "%s: invalid status = %04x\n", a->adapter.name, status);
             mpsse_reset (a, 0, 0, 0);
             goto failed;
         }
