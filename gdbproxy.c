@@ -47,6 +47,9 @@
 
 /* Debug flag */
 int debug_level = 0;
+/* Log file */
+FILE *file;
+
 
 /* Flag to catch unexpected output from target */
 static int rp_target_out_valid = FALSE;
@@ -281,6 +284,8 @@ static void handle_thread_commands(char * const in_buf,
         break;
     default:
         rp_log(RP_VAL_LOGLEVEL_ERR, "%s: Bad H command", name);
+        fprintf(file, "%s: Bad H command\n", name);
+        fflush(file);
         break;
     }
 }
@@ -648,6 +653,10 @@ static int handle_kill_command(char * const in_buf,
     rp_log(RP_VAL_LOGLEVEL_INFO,
            "%s: session finished",
            name);
+    fprintf(file,
+            "%s: session finished\n",
+            name);
+    fflush(file);
 
     if (!extended_protocol)
     {
@@ -661,6 +670,10 @@ static int handle_kill_command(char * const in_buf,
             rp_log(RP_VAL_LOGLEVEL_INFO,
                    "%s: exiting",
                    name);
+            fprintf(file,
+                   "%s: exiting\n",
+                   name);
+            fflush(file);
             dbg_sock_cleanup();
             exit(0);
         }
@@ -685,6 +698,11 @@ static int handle_kill_command(char * const in_buf,
                "%s: unable to restart target %s",
                name,
                t->name);
+        fprintf(file,
+               "%s: unable to restart target %s\n",
+               name,
+               t->name);
+        fflush(file);
         t->close();
         rp_write_retval(RP_VAL_TARGETRET_ERR, out_buf);
         rp_putpkt(out_buf);
@@ -699,6 +717,10 @@ static int handle_kill_command(char * const in_buf,
         rp_log(RP_VAL_LOGLEVEL_INFO,
                "%s: will wait for a new connection",
                name);
+        fprintf(file,
+               "%s: will wait for a new connection\n",
+               name);
+        fflush(file);
         return  FALSE;
     }
     return  TRUE;
@@ -762,6 +784,11 @@ static int handle_restart_target_command(char * const in_buf,
    	       "%s: unable to restart target %s",
                name,
 	       t->name);
+        fprintf(file,
+   	       "%s: unable to restart target %s\n",
+               name,
+	       t->name);
+        fflush(file);
         t->close();
         rp_write_retval(RP_VAL_TARGETRET_ERR, out_buf);
         rp_putpkt(out_buf);
@@ -774,6 +801,10 @@ static int handle_restart_target_command(char * const in_buf,
             rp_log(RP_VAL_LOGLEVEL_INFO,
                    "%s: target is not restartable. Exiting",
                    name);
+            fprintf(file,
+                   "%s: target is not restartable. Exiting\n",
+                   name);
+            fflush(file);
             dbg_sock_cleanup();
             exit(1);
         }
@@ -781,6 +812,10 @@ static int handle_restart_target_command(char * const in_buf,
         rp_log(RP_VAL_LOGLEVEL_INFO,
                "%s: will wait for a new connection",
                name);
+        fprintf(file,
+               "%s: will wait for a new connection\n",
+               name);
+        fflush(file);
         return  -1;
     }
     return  TRUE;
@@ -800,6 +835,8 @@ static void handle_detach_command(char * const in_buf,
     dbg_sock_close();
 
     rp_log(RP_VAL_LOGLEVEL_INFO, "%s: debugger detached", name);
+    fprintf(file, "%s: debugger detached\n", name);
+    fflush(file);
 
     if (!can_restart)
     {
@@ -808,6 +845,10 @@ static void handle_detach_command(char * const in_buf,
         rp_log(RP_VAL_LOGLEVEL_INFO,
                "%s: target is not restartable. Exiting",
                name);
+        fprintf(file,
+               "%s: target is not restartable. Exiting\n",
+               name);
+        fflush(file);
         dbg_sock_cleanup();
         exit(0);
     }
@@ -815,6 +856,10 @@ static void handle_detach_command(char * const in_buf,
     rp_log(RP_VAL_LOGLEVEL_INFO,
            "%s: will wait for a new connection",
            name);
+    fprintf(file,
+           "%s: will wait for a new connection\n",
+           name);
+    fflush(file);
 }
 
 static void handle_query_command(char * const in_buf,
@@ -843,6 +888,10 @@ static void handle_query_command(char * const in_buf,
         rp_log(RP_VAL_LOGLEVEL_ERR,
                "%s: bad 'q' command received",
                name);
+        fprintf(file,
+               "%s: bad 'q' command received\n",
+               name);
+        fflush(file);
         return;
     }
     if (strncmp(in_buf + 1, "Offsets", 7) == 0)
@@ -1064,9 +1113,6 @@ static void handle_breakpoint_command(char * const in_buf,
     rp_write_retval(ret, out_buf);
 }
 
-
-FILE *file;
-
 int main (int argc, char **argv)
 {
     rp_target *t;
@@ -1083,7 +1129,7 @@ int main (int argc, char **argv)
     int implemented;
     size_t in_len;
 
-    const char filename[] = "/home/vlasovdv0111/SchoolMIPSproxy/log";
+    const char filename[] = "/home/vlasovdv0111/SchoolMIPSproxy/SchoolMIPSproxy.log";
     file= fopen(filename, "a");
     
 
@@ -1238,6 +1284,8 @@ int main (int argc, char **argv)
     if ((rp_log = rp_env_init(name, doing_daemon)) == NULL)
     {
         printf("%s: fatal: unable to initialize environment\n", name);
+        fprintf(file,"%s: fatal: unable to initialize environment\n", name);
+        fflush(file);
         exit(1);
     }
 
@@ -1255,12 +1303,18 @@ int main (int argc, char **argv)
             rp_log(RP_VAL_LOGLEVEL_INFO,
                    "%s: debugger has terminated connection",
                    name);
+            fprintf(file,
+                   "%s: debugger has terminated connection\n",
+                   name);
+            fflush(file);
 
             t->close();
             dbg_sock_close();
 
             /* Close connection and start again */
             rp_log(RP_VAL_LOGLEVEL_INFO, "%s: will reopen the connection", name);
+            fprintf(file, "%s: will reopen the connection\n", name);
+            fflush(file);
             do_reinitialize = TRUE;
         }
 
@@ -1295,6 +1349,11 @@ int main (int argc, char **argv)
                        "%s: unable to open target %s",
                        name,
                        t->name);
+                fprintf(file,
+                       "%s: unable to open target %s\n",
+                       name,
+                       t->name);
+                fflush(file);
                 exit(1);
             default:
                 assert(0);
@@ -1310,6 +1369,10 @@ int main (int argc, char **argv)
                     rp_log(RP_VAL_LOGLEVEL_ERR,
                            "%s: unable to open debugger connection. Will restart",
                            name);
+                    fprintf(file,
+                           "%s: unable to open debugger connection. Will restart\n",
+                           name);
+                    fflush(file);
                     continue;
                 }
 
@@ -1317,18 +1380,31 @@ int main (int argc, char **argv)
                        "%s: waiting on TCP port %d",
                        name,
                        port);
+                fprintf(file,
+                       "%s: waiting on TCP port %d\n",
+                       name,
+                       port);
+                fflush(file);
 
                 if (!(ret = dbg_sock_accept()))
                 {
                     rp_log(RP_VAL_LOGLEVEL_ERR,
                            "%s: error while waiting for debugger connection. Will restart.",
                            name);
+                    fprintf(file,
+                           "%s: error while waiting for debugger connection. Will restart.\n",
+                           name);
+                    fflush(file);
                     dbg_sock_close();
                     continue;
                 }
                 rp_log(RP_VAL_LOGLEVEL_NOTICE,
                        "%s: connected",
                        name);
+                fprintf(file,
+                       "%s: connected\n",
+                       name);
+                fflush(file);
                 break;
             }
             do_connect = TRUE;
@@ -1346,6 +1422,11 @@ int main (int argc, char **argv)
                        "%s: unable to connect to target %s. Will restart.",
                        name,
                        t->name);
+                fprintf(file,
+                       "%s: unable to connect to target %s. Will restart.\n",
+                       name,
+                       t->name);
+                fflush(file);
                 do_reinitialize = TRUE;
                 continue;
             }
@@ -1419,6 +1500,10 @@ int main (int argc, char **argv)
             rp_log(RP_VAL_LOGLEVEL_DEBUG,
                    "%s: switching to extended protocol mode\n",
                    name);
+            fprintf(file,
+                   "%s: switching to extended protocol mode\n",
+                   name);
+            fflush(file);
             if (can_restart)
             {
                 extended_protocol = TRUE;
@@ -1431,6 +1516,10 @@ int main (int argc, char **argv)
                 rp_log(RP_VAL_LOGLEVEL_ERR,
                        "%s: extended operations required, but not supported",
                        name);
+                fprintf(file,
+                       "%s: extended operations required, but not supported\n",
+                       name);
+                fflush(file);
             }
             break;
         case '?':
@@ -1628,11 +1717,19 @@ static int rp_putpkt(const char *buf)
                name,
                len,
 	       buf2);
+        fprintf(file,
+               "%s: sending packet: %d bytes: %s...\n",
+               name,
+               len,
+	       buf2);
+        fflush(file);
 
         if ((ret = dbg_sock_write(buf2, len)) == 0)
         {
             /* Something went wrong */
             rp_log(RP_VAL_LOGLEVEL_DEBUG, "%s: write failed", name);
+            fprintf(file, "%s: write failed\n", name);
+            fflush(file);
             return 0;
         }
 
@@ -1640,11 +1737,15 @@ static int rp_putpkt(const char *buf)
         if ((ret = rp_getpkt(in_buf, sizeof(in_buf), &dummy_len, -1)) == -1)
         {
             rp_log(RP_VAL_LOGLEVEL_DEBUG, "%s: read of ACK failed", name);
+            fprintf(file, "%s: read of ACK failed\n", name);
+            fflush(file);
             return  FALSE;
         }
         if (ret == ACK)
         {
             rp_log(RP_VAL_LOGLEVEL_DEBUG2, "%s: got ACK", name);
+            fprintf(file, "%s: got ACK\n", name);
+            fflush(file);
             return  TRUE;
         }
     }
@@ -1688,6 +1789,8 @@ static int rp_getpkt(char *buf, size_t buf_len, size_t *len, int timeout)
         if (c == RP_VAL_MISCREADCHARRET_ERR)
         {
             rp_log(RP_VAL_LOGLEVEL_DEBUG, "%s: error while reading from GDB", name);
+            fprintf(file, "%s: error while reading from GDB\n", name);
+            fflush(file);
             return  -1;
         }
         if (c == RP_VAL_MISCREADCHARRET_TMOUT)
@@ -1700,6 +1803,8 @@ static int rp_getpkt(char *buf, size_t buf_len, size_t *len, int timeout)
         {
             /* Unexpected start of packet marker in mid-packet. */
             rp_log(RP_VAL_LOGLEVEL_DEBUG, "%s: unexpected new packet", name);
+            fprintf(file, "%s: unexpected new packet\n", name);
+            fflush(file);
             seq[0] = 0;
             seq[1] = 0;
             seq_valid = FALSE;
@@ -1728,6 +1833,8 @@ static int rp_getpkt(char *buf, size_t buf_len, size_t *len, int timeout)
             {
                 /* A control C */
                 rp_log(RP_VAL_LOGLEVEL_DEBUG, "%s: Control-C received", name);
+                fprintf(file, "%s: Control-C received\n", name);
+                fflush(file);
                 return  '\3';
             }
             else if (c == '+')
@@ -1736,6 +1843,8 @@ static int rp_getpkt(char *buf, size_t buf_len, size_t *len, int timeout)
                 /* We don't use sequence numbers, so we shouldn't expect a
                    sequence number after this character. */
                 rp_log(RP_VAL_LOGLEVEL_DEBUG2, "%s: ACK received", name);
+                fprintf (file, "%s: ACK received\n", name);
+                fflush(file);
                 return  ACK;
             }
             else if (c == '-')
@@ -1744,11 +1853,15 @@ static int rp_getpkt(char *buf, size_t buf_len, size_t *len, int timeout)
                 /* We don't use sequence numbers, so we shouldn't expect a
                    sequence number after this character. */
                 rp_log(RP_VAL_LOGLEVEL_DEBUG2, "%s: NAK received", name);
+                fprintf (file, "%s: NAK received\n", name);
+                fflush(file);
                 return  NAK;
             }
             else
             {
                 rp_log(RP_VAL_LOGLEVEL_DEBUG, "%s: we got junk - 0x%X", name, c & 0xFF);
+                fprintf (file, "%s: we got junk - 0x%X\n", name, c & 0xFF);
+                fflush(file);
             }
             break;
         case 1:
@@ -1824,6 +1937,10 @@ static int rp_getpkt(char *buf, size_t buf_len, size_t *len, int timeout)
                 rp_log(RP_VAL_LOGLEVEL_DEBUG,
                        "%s: received excessive length packet",
                        name);
+                fprintf(file,
+                       "%s: received excessive length packet\n",
+                       name);
+                fflush(file);
                 continue;
             }
             buf[pkt_len++] = c;
@@ -1847,6 +1964,10 @@ static int rp_getpkt(char *buf, size_t buf_len, size_t *len, int timeout)
                 rp_log(RP_VAL_LOGLEVEL_DEBUG,
                        "%s: received a packet that is too long",
                        name);
+                fprintf(file,
+                       "%s: received a packet that is too long\n",
+                       name);
+                fflush(file);
                 continue;
             }
             if (esc_found)
@@ -1885,6 +2006,11 @@ static int rp_getpkt(char *buf, size_t buf_len, size_t *len, int timeout)
                        "%s: bad checksum character %c",
                        name,
                        c);
+                fprintf(file,
+                       "%s: bad checksum character %c\n",
+                       name,
+                       c);
+                fflush(file);
                 state = 0;
                 break;
             }
@@ -1900,6 +2026,11 @@ static int rp_getpkt(char *buf, size_t buf_len, size_t *len, int timeout)
                        "%s: bad checksum character %c",
                        name,
                        c);
+                fprintf(file,
+                       "%s: bad checksum character %c\n",
+                       name,
+                       c);
+                fflush(file);
                 state = 0;
                 break;
             }
@@ -1918,6 +2049,8 @@ static int rp_getpkt(char *buf, size_t buf_len, size_t *len, int timeout)
                 }
 
                 rp_log(RP_VAL_LOGLEVEL_DEBUG2, "%s: packet received: %s", name, buf);
+                fprintf(file, "%s: packet received: %s\n", name, buf);
+                fflush(file);
                 return  0;
             }
             rp_log(RP_VAL_LOGLEVEL_DEBUG,
@@ -1925,6 +2058,12 @@ static int rp_getpkt(char *buf, size_t buf_len, size_t *len, int timeout)
                    name,
                    rx_csum,
                    calc_csum);
+            fprintf(file,
+                   "%s: bad checksum calculated=0x%x received=0x%x\n",
+                   name,
+                   rx_csum,
+                   calc_csum);
+            fflush(file);
             state = 0;
             continue;
         }
@@ -1952,6 +2091,11 @@ static void rp_console_output(const char *s)
                "%s: unexpected output from target: %s",
                name,
                s);
+        fprintf(file,
+               "%s: unexpected output from target: %s\n",
+               name,
+               s);
+        fflush(file);
         return;
     }
 
@@ -1993,6 +2137,11 @@ static void rp_data_output(const char *s)
                "%s: unexpected output from target: %s",
                name,
                s);
+        fprintf(file,
+               "%s: unexpected output from target: %s\n",
+               name,
+               s);
+        fflush(file);
         return;
     }
 
@@ -2034,6 +2183,8 @@ static int rp_decode_data(const char *in,
         {
             /* Odd number of nibbles. Discard the last one */
             rp_log(RP_VAL_LOGLEVEL_WARNING, "%s: odd number of nibbles", name);
+            fprintf(file, "%s: odd number of nibbles\n", name);
+            fflush(file);
             if (count == 0)
                 return  FALSE;
             *len = count;

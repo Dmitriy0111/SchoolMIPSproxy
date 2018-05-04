@@ -524,6 +524,7 @@ static void target_save_state (target_t *t)
             t->nbpoints, t->nwatchpoints);
         fprintf(file,"hardware: %u breakpoints, %u watchpoints\n",
             t->nbpoints, t->nwatchpoints);
+        fflush(file);
     }
 }
 
@@ -714,6 +715,7 @@ target_t *target_open ()
         t->cpu_name = devtab[i].name;
         printf ("processor: %s\n", t->cpu_name);
         fprintf(file,"processor: %s\n", t->cpu_name);
+        fflush(file);
     }
 
     if (t->is_pic32) {
@@ -1007,6 +1009,7 @@ unsigned target_read_word (target_t *t, unsigned addr)
         /* Exception: bad address. */
         fprintf (stderr, "ERROR: cannot read address %08x\n", addr);
         fprintf(file, "ERROR: cannot read address %08x\n", addr);
+        fflush(file);
         t->restore_depc = 1;
         return 0;
     }
@@ -1080,6 +1083,7 @@ void target_read_block (target_t *t, unsigned addr,
             /* Exception: bad address. */
             fprintf (stderr, "ERROR: cannot read address %08x\n", addr);
             fprintf(file, "ERROR: cannot read address %08x\n", addr);
+            fflush(file);
             memset (&data[nread], 0, 4*n);
             t->restore_depc = 1;
         }
@@ -1123,12 +1127,14 @@ void target_write_word (target_t *t, unsigned addr, unsigned word)
     {
         fprintf (stderr, "ERROR: cannot write %08x to address %08x\n", word, addr);
         fprintf(file, "ERROR: cannot write %08x to address %08x\n", word, addr);
+        fflush(file);
         t->restore_depc = 1;
     }
     if (debug_level > 0)
     {
         fprintf (stderr, "target_write_word: %08x to address %08x\n", word, addr);
         fprintf(file, "target_write_word: %08x to address %08x\n", word, addr);
+        fflush(file);
     }
 }
 
@@ -1162,12 +1168,14 @@ void target_cache_flush (target_t *t, unsigned addr)
     {
         fprintf (stderr, "ERROR: cannot flush cache at address %08x\n", addr);
         fprintf(file, "ERROR: cannot flush cache at address %08x\n", addr);
+        fflush(file);
         t->restore_depc = 1;
     }
     if (debug_level > 0)
     {
         fprintf (stderr, "target_cache_flush: cache flush at %08x\n", addr);
         fprintf(file, "target_cache_flush: cache flush at %08x\n", addr);
+        fflush(file);
     }
 }
 
@@ -1222,6 +1230,7 @@ void target_write_block (target_t *t, unsigned addr,
     {
         fprintf (stderr, "ERROR: cannot write %u words to address %08x\n", nwords, addr);
         fprintf(file, "ERROR: cannot write %u words to address %08x\n", nwords, addr);
+        fflush(file);
         t->restore_depc = 1;
     }
 }
@@ -1363,6 +1372,7 @@ void target_add_break (target_t *t, unsigned addr, int type)
                      i, addr);
             fprintf(file, "target_add_break: set breakpoint #%d at %08x\n",
                      i, addr);
+            fflush(file);
         }
     } else {
         /* Data watchpoint. */
@@ -1414,6 +1424,7 @@ void target_add_break (target_t *t, unsigned addr, int type)
                      type, i, addr);
             fprintf(file, "target_add_break: set %c-watchpoint #%d at %08x\n",
                      type, i, addr);
+            fflush(file);
         }
     }
 }
@@ -1436,6 +1447,7 @@ void target_remove_break (target_t *t, unsigned addr)
                          i, addr);
                 fprintf(file, "target_remove_break: clear breakpoint #%d at %08x\n",
                          i, addr);
+                fflush(file);
             }
         }
     }
@@ -1450,6 +1462,7 @@ void target_remove_break (target_t *t, unsigned addr)
                          i, addr);
                 fprintf(file, "target_remove_break: clear watchpoint #%d at %08x\n",
                          i, addr);
+                fflush(file);
             }
         }
     }

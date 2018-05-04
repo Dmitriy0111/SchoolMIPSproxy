@@ -142,23 +142,32 @@ static void bulk_write (mpsse_adapter_t *a, unsigned char *output, int nbytes)
 {
     int bytes_written;
 
-    if (debug_level > 4) {
+    if (debug_level > 1) {
         int i;
         fprintf (stderr, "usb bulk write %d bytes:", nbytes);
+        fprintf (file, "usb bulk write %d bytes:", nbytes);
         for (i=0; i<nbytes; i++)
+        {
+            fprintf (file, "%c%02x", i ? '-' : ' ', output[i]);
             fprintf (stderr, "%c%02x", i ? '-' : ' ', output[i]);
+        }
         fprintf (stderr, "\n");
+        fprintf (file, "\n");
     }
     bytes_written = usb_bulk_write (a->usbdev, IN_EP, (char*) output,
         nbytes, 1000);
     if (bytes_written < 0) {
         fprintf (stderr, "usb bulk write failed: %d: %s\n",
             bytes_written, usb_strerror());
+        fprintf (file, "usb bulk write failed: %d: %s\n",
+            bytes_written, usb_strerror());
         exit (-1);
     }
     if (bytes_written != nbytes)
+    {
         fprintf (stderr, "usb bulk written %d bytes of %d",
             bytes_written, nbytes);
+    }
 }
 
 /*
@@ -187,16 +196,23 @@ static void mpsse_flush_output (mpsse_adapter_t *a)
             fprintf (stderr, "usb bulk read failed\n");
             exit (-1);
         }
-        if (debug_level > 4) {
+        if (debug_level > 1) {
             if (n != a->bytes_to_read + 2)
+            {
                 fprintf (stderr, "usb bulk read %d bytes of %d\n",
                     n, a->bytes_to_read - bytes_read + 2);
+            }
             else {
                 int i;
                 fprintf (stderr, "usb bulk read %d bytes:", n);
+                fprintf (file, "usb bulk read %d bytes:", n);
                 for (i=0; i<n; i++)
+                {
                     fprintf (stderr, "%c%02x", i ? '-' : ' ', reply[i]);
+                    fprintf (file, "%c%02x", i ? '-' : ' ', reply[i]);
+                }
                 fprintf (stderr, "\n");
+                fprintf (file, "\n");
             }
         }
         if (n > 2) {
@@ -205,12 +221,17 @@ static void mpsse_flush_output (mpsse_adapter_t *a)
             bytes_read += n - 2;
         }
     }
-    if (debug_level > 4) {
+    if (debug_level > 1) {
         int i;
         fprintf (stderr, "mpsse_flush_output received %d bytes:", a->bytes_to_read);
+        fprintf (file, "mpsse_flush_output received %d bytes:", a->bytes_to_read);
         for (i=0; i<a->bytes_to_read; i++)
+        {
             fprintf (stderr, "%c%02x", i ? '-' : ' ', a->input[i]);
+            fprintf (file, "%c%02x", i ? '-' : ' ', a->input[i]);
+        }
         fprintf (stderr, "\n");
+        fprintf (file, "\n");
     }
     a->bytes_to_read = 0;
 }
@@ -412,6 +433,7 @@ static void mpsse_reset (mpsse_adapter_t *a, int trst, int sysrst, int led)
             trst, sysrst, output, direction);
         fprintf (stderr, "mpsse_reset (trst=%d, sysrst=%d) output=%04x, direction: %04x\n",
             trst, sysrst, output, direction);
+        fflush(file);
     }
 }
 
@@ -429,6 +451,7 @@ static void mpsse_speed (mpsse_adapter_t *a, int khz)
     {
     	fprintf (stderr, "%s: divisor: %u\n", a->adapter.name, divisor);
         fprintf(file, "%s: divisor: %u\n", a->adapter.name, divisor);
+        fflush(file);
     }
 
     if (a->mhz > 6) {
@@ -455,6 +478,7 @@ static void mpsse_speed (mpsse_adapter_t *a, int khz)
             a->adapter.name, khz / 1000.0);
         fprintf(file, "%s: clock rate %.1f MHz\n",
             a->adapter.name, khz / 1000.0);
+        fflush(file);
     }
 }
 
@@ -507,6 +531,7 @@ static unsigned mpsse_get_idcode (adapter_t *adapter)
     {
         fprintf (stderr, "%s: idcode %08x\n", a->adapter.name, idcode);
         fprintf(file, "%s: idcode %08x\n", a->adapter.name, idcode);
+        fflush(file);
     }
     return idcode;
 }
@@ -530,6 +555,7 @@ static unsigned mpsse_get_impcode (adapter_t *adapter)
     {
         fprintf (stderr, "%s: impcode %08x\n", a->adapter.name, impcode);
         fprintf(file, "%s: impcode %08x\n", a->adapter.name, impcode);
+        fflush(file);
     }
     return impcode;
 }
@@ -572,10 +598,12 @@ static void mpsse_reset_cpu (adapter_t *adapter)
     {
         fprintf (stderr, "mpsse_reset_cpu: control = %08x\n", ctl);
         fprintf(file, "mpsse_reset_cpu: control = %08x\n", ctl);
+        fflush(file);
     }
     if (! (ctl & CONTROL_ROCC)) {
         fprintf (stderr, "mpsse_reset_cpu: reset failed\n");
         fprintf(file, "mpsse_reset_cpu: reset failed\n");
+        fflush(file);
         exit (-1);
     }
 }
@@ -669,12 +697,14 @@ static void pracc_exec_read (mpsse_adapter_t *a, unsigned address)
             a->adapter.name, address);
         fprintf(file, "%s: error reading unexpected address %08x\n",
             a->adapter.name, address);
+        fflush(file);
         exit (-1);
     }
     if (debug_level > 1)
     {
         fprintf (stderr, "exec: read address %08x -> %08x\n", address, data);
         fprintf(file, "exec: read address %08x -> %08x\n", address, data);
+        fflush(file);
     }
 
     /* Send the data out */
@@ -729,12 +759,14 @@ static void pracc_exec_write (mpsse_adapter_t *a, unsigned address)
             a->adapter.name, address);
         fprintf(file, "%s: error writing unexpected address %08x\n",
             a->adapter.name, address);
+        fflush(file);
         exit (-1);
     }
     if (debug_level > 1)
     {
         fprintf (stderr, "exec: write address %08x := %08x\n", address, data);
         fprintf(file, "exec: write address %08x := %08x\n", address, data);
+        fflush(file);
     }
 }
 
@@ -775,6 +807,7 @@ static int mpsse_exec (adapter_t *adapter, int stay_in_debug_mode,
             {
                 fprintf (stderr, "exec: ctl = %08x\n", ctl);
                 fprintf(file, "exec: ctl = %08x\n", ctl);
+                fflush(file);
             }
             if (ctl & CONTROL_PRACC)
                 break;
@@ -793,6 +826,7 @@ static int mpsse_exec (adapter_t *adapter, int stay_in_debug_mode,
         {
             fprintf (stderr, "exec: address = %08x\n", address);
             fprintf(file, "exec: address = %08x\n", address);
+            fflush(file);
         }
 
         /* Check for read or write */
@@ -829,6 +863,7 @@ adapter_t *adapter_open_mpsse (void)
     if (! a) {
         fprintf (stderr, "adapter_open_mpsse: out of memory\n");
         fprintf(file, "adapter_open_mpsse: out of memory\n");
+        fflush(file);
         return 0;
     }
     usb_init();
@@ -902,6 +937,7 @@ found:
     if (! a->usbdev) {
         fprintf (stderr, "%s: usb_open() failed\n", a->adapter.name);
         fprintf(file, "%s: usb_open() failed\n", a->adapter.name);
+        fflush(file);
         free (a);
         return 0;
     }
@@ -1017,17 +1053,20 @@ failed:
         {
             fprintf (stderr, "%s: status %04x\n", a->adapter.name, status);
             fprintf(file, "%s: status %04x\n", a->adapter.name, status);
+            fflush(file);
         }
         if (status & MCHP_STATUS_DEVRST)
         {
             fprintf (stderr, "%s: processor is in reset mode\n", a->adapter.name);
             fprintf(file, "%s: processor is in reset mode\n", a->adapter.name);
+            fflush(file);
         }
         if ((status & ~MCHP_STATUS_DEVRST) !=
             (MCHP_STATUS_CPS | MCHP_STATUS_CFGRDY | MCHP_STATUS_FAEN))
         {
             fprintf (stderr, "%s: invalid status = %04x\n", a->adapter.name, status);
             fprintf(file, "%s: invalid status = %04x\n", a->adapter.name, status);
+            fflush(file);
             mpsse_reset (a, 0, 0, 0);
             goto failed;
         }
