@@ -1113,6 +1113,9 @@ static void handle_breakpoint_command(char * const in_buf,
     rp_write_retval(ret, out_buf);
 }
 
+
+FILE *file;
+
 int main (int argc, char **argv)
 {
     rp_target *t;
