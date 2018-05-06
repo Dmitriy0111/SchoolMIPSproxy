@@ -245,6 +245,8 @@ static void mpsse_send (mpsse_adapter_t *a,
     unsigned tdi_nbits, unsigned long long tdi, int read_flag)
 {
     unsigned tms_epilog_nbits = 0, tms_epilog = 0;
+    fprintf(file, "\nmpsse_send\n");
+    fflush(file);
 
     if (tdi_nbits > 0) {
         /* We have some data; add generic prologue TMS 1-0-0
@@ -514,6 +516,8 @@ static unsigned mpsse_get_idcode (adapter_t *adapter)
 {
     mpsse_adapter_t *a = (mpsse_adapter_t*) adapter;
     unsigned idcode;
+    fprintf(file, "\nmpsse_get_idcode\n");
+    fflush(file);
 
     /* Issue TAP reset for 100msec.
      * Required for Ingenic JZ4780. */
@@ -543,11 +547,17 @@ static unsigned mpsse_get_impcode (adapter_t *adapter)
 {
     mpsse_adapter_t *a = (mpsse_adapter_t*) adapter;
     unsigned impcode;
+    fprintf(file, "\nmpsse_get_impcode\n");
+    fflush(file);
 
     mpsse_send (a, 6, 31, 0, 0, 0);                 /* TMS 1-1-1-1-1-0 */
+    fprintf(file, "\nTMS 1-1-1-1-1-0\n");
+    fflush(file);
     if (a->is_microchip)
         mpsse_send (a, 1, 1, 5, TAP_SW_ETAP, 0);
     mpsse_send (a, 1, 1, 5, ETAP_IMPCODE, 0);
+    fprintf(file, "\nETAP_IMPCODE\n");
+    fflush(file);
     mpsse_send (a, 0, 0, 32, 0, 1);
     impcode = mpsse_recv (a);
 
@@ -615,9 +625,13 @@ static int mpsse_cpu_stopped (adapter_t *adapter)
 {
     mpsse_adapter_t *a = (mpsse_adapter_t*) adapter;
     unsigned ctl;
+    fprintf(file, "\nmpsse_cpu_stopped\n");
+    fflush(file);
 
     /* Select Control Register. */
     mpsse_send (a, 1, 1, 5, ETAP_CONTROL, 0);
+    fprintf(file, "\nETAP_CONTROL\n");
+    fflush(file);
 
     /* Check if Debug Mode bit is set. */
     mpsse_send (a, 0, 0, 32, a->control, 1);
@@ -635,6 +649,8 @@ static void mpsse_stop_cpu (adapter_t *adapter)
 
     /* Select Control Register. */
     mpsse_send (a, 1, 1, 5, ETAP_CONTROL, 0);
+    fprintf(file, "\nETAP_CONTROL\n");
+    fflush(file);
 
     /* Loop until Debug Mode entered. */
     while (! (ctl & CONTROL_DM)) {
@@ -667,6 +683,8 @@ static void pracc_exec_read (mpsse_adapter_t *a, unsigned address)
 {
     int offset;
     unsigned data;
+    fprintf(file, "\npracc_exec_read:\n");
+    fflush(file);
 
     if ((address >= PRACC_PARAM_IN) &&
         (address <= PRACC_PARAM_IN + a->num_iparam * 4))
@@ -709,10 +727,14 @@ static void pracc_exec_read (mpsse_adapter_t *a, unsigned address)
 
     /* Send the data out */
     mpsse_send (a, 1, 1, 5, ETAP_DATA, 0);
+    fprintf(file, "\nETAP_DATA\n");
+    fflush(file);
     mpsse_send (a, 0, 0, 32, data, 0);
 
     /* Clear the access pending bit (let the processor eat!) */
     mpsse_send (a, 1, 1, 5, ETAP_CONTROL, 0);
+    fprintf(file, "\nETAP_CONTROL\n");
+    fflush(file);
     mpsse_send (a, 0, 0, 32, a->control & ~CONTROL_PRACC, 0);
     mpsse_flush_output (a);
 }
@@ -725,14 +747,20 @@ static void pracc_exec_write (mpsse_adapter_t *a, unsigned address)
 {
     unsigned data;
     int offset;
+    fprintf(file, "\npracc_exec_write:\n");
+    fflush(file);
 
     /* Get data */
     mpsse_send (a, 1, 1, 5, ETAP_DATA, 0);
+    fprintf(file, "\nETAP_DATA\n");
+    fflush(file);
     mpsse_send (a, 0, 0, 32, 0, 1);
     data = mpsse_recv (a);
 
     /* Clear access pending bit */
     mpsse_send (a, 1, 1, 5, ETAP_CONTROL, 0);
+    fprintf(file, "\nETAP_CONTROL\n");
+    fflush(file);
     mpsse_send (a, 0, 0, 32, a->control & ~CONTROL_PRACC, 0);
     mpsse_flush_output (a);
 
@@ -786,6 +814,8 @@ static int mpsse_exec (adapter_t *adapter, int stay_in_debug_mode,
     mpsse_adapter_t *a = (mpsse_adapter_t*) adapter;
     unsigned ctl, address;
     int access_count = 0, poll_count;
+    fprintf(file, "\nmpsse_exec:\n");
+    fflush(file);
 
     a->local_iparam = param_in;
     a->local_oparam = param_out;
@@ -798,6 +828,8 @@ static int mpsse_exec (adapter_t *adapter, int stay_in_debug_mode,
     for (;;) {
         /* Select Control register. */
         mpsse_send (a, 1, 1, 5, ETAP_CONTROL, 0);
+        fprintf(file, "\nETAP_CONTROL\n");
+        fflush(file);
 
 	/* Wait for the PrAcc to become "1". */
         for (poll_count=0; ; poll_count++) {
@@ -820,6 +852,8 @@ static int mpsse_exec (adapter_t *adapter, int stay_in_debug_mode,
 
         /* Read Address register. */
         mpsse_send (a, 1, 1, 5, ETAP_ADDRESS, 0);
+        fprintf(file, "\nETAP_ADDRESS\n");
+        fflush(file);
         mpsse_send (a, 0, 0, 32, 0, 1);
         address = mpsse_recv (a);
         if (debug_level > 1)

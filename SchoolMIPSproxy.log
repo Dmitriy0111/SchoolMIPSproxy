@@ -8,1700 +8,6805 @@ usb bulk write 3 bytes: 8a-97-8d
 usb bulk write 3 bytes: 86-b7-0b
 Dangerous Prototypes Bus Blaster: clock rate 0.0 MHz
 usb bulk write 1 bytes: 85
+
+mpsse_send
 usb bulk write 21 bytes: 4b-06-5f-4b-01-00-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 05-10-0f-00-00
+
+mpsse_get_idcode
 usb bulk write 3 bytes: 80-08-1b
 usb bulk write 3 bytes: 82-02-0f
 mpsse_reset (trst=1, sysrst=0) output=0208, direction: 0f1b
 usb bulk write 3 bytes: 80-08-1b
 usb bulk write 3 bytes: 82-03-0f
 mpsse_reset (trst=0, sysrst=0) output=0308, direction: 0f1b
+
+mpsse_send
 usb bulk write 21 bytes: 4b-06-5f-4b-01-00-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 05-10-0f-00-00
 Dangerous Prototypes Bus Blaster: idcode 000f1005
+
+mpsse_get_impcode
+
+mpsse_send
+
+TMS 1-1-1-1-1-0
+
+mpsse_send
+
+ETAP_IMPCODE
+
+mpsse_send
 usb bulk write 33 bytes: 4b-05-1f-4b-03-03-1b-03-03-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-40-40-40-50
 Dangerous Prototypes Bus Blaster: impcode a0404000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-d0-04-3b-06-00-6b-01-03-4b-00-00
-mpsse_flush_output received 5 bytes: 00-c0-00-00-00
-stop_cpu: control = 0000c000
+mpsse_flush_output received 5 bytes: 00-00-00-00-40
+stop_cpu: control = 80000000
+processor: reset occured
+
+mpsse_send
 usb bulk write 18 bytes: 4b-02-01-39-02-00-00-d0-04-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 stop_cpu: control = 4004c008
+
+target_save_state
+
+mpsse_exec:
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-02-20-fe-7f
 exec: address = ff200200
+
+pracc_exec_read:
 exec: read address ff200200 -> 4082f800
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-f8-82-1b-06-40-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 04-02-20-fe-7f
 exec: address = ff200204
+
+pracc_exec_read:
 exec: read address ff200204 -> 3c02ff20
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-20-ff-02-1b-06-3c-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 08-02-20-fe-7f
 exec: address = ff200208
+
+pracc_exec_read:
 exec: read address ff200208 -> 34422000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-20-42-1b-06-34-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 0c-02-20-fe-7f
 exec: address = ff20020c
+
+pracc_exec_read:
 exec: read address ff20020c -> ac400000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-40-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 10-02-20-fe-7f
 exec: address = ff200210
+
+pracc_exec_read:
 exec: read address ff200210 -> ac410004
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-04-00-41-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-20-20-fe-7f
 exec: address = ff202000
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202000 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 14-02-20-fe-7f
 exec: address = ff200214
+
+pracc_exec_read:
 exec: read address ff200214 -> ac4f003c
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-3c-00-4f-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 04-20-20-fe-7f
 exec: address = ff202004
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202004 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 18-02-20-fe-7f
 exec: address = ff200218
+
+pracc_exec_read:
 exec: read address ff200218 -> 4002f800
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-f8-02-1b-06-40-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 3c-20-20-fe-7f
 exec: address = ff20203c
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff20203c := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 1c-02-20-fe-7f
 exec: address = ff20021c
+
+pracc_exec_read:
 exec: read address ff20021c -> 408ff800
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-f8-8f-1b-06-40-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 20-02-20-fe-7f
 exec: address = ff200220
+
+pracc_exec_read:
 exec: read address ff200220 -> 3c0fff20
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-20-ff-0f-1b-06-3c-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 24-02-20-fe-7f
 exec: address = ff200224
+
+pracc_exec_read:
 exec: read address ff200224 -> 35ef4000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-40-ef-1b-06-35-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 28-02-20-fe-7f
 exec: address = ff200228
+
+pracc_exec_read:
 exec: read address ff200228 -> ade10000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-e1-1b-06-ad-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 2c-02-20-fe-7f
 exec: address = ff20022c
+
+pracc_exec_read:
 exec: read address ff20022c -> ade20000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-e2-1b-06-ad-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-40-20-fe-7f
 exec: address = ff204000
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff204000 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 30-02-20-fe-7f
 exec: address = ff200230
+
+pracc_exec_read:
 exec: read address ff200230 -> 3c01ff20
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-20-ff-01-1b-06-3c-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-40-20-fe-7f
 exec: address = ff204000
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff204000 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 34-02-20-fe-7f
 exec: address = ff200234
+
+pracc_exec_read:
 exec: read address ff200234 -> 34212000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-20-21-1b-06-34-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 38-02-20-fe-7f
 exec: address = ff200238
+
+pracc_exec_read:
 exec: read address ff200238 -> ac220008
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-08-00-22-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 3c-02-20-fe-7f
 exec: address = ff20023c
+
+pracc_exec_read:
 exec: read address ff20023c -> ac23000c
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-0c-00-23-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 08-20-20-fe-7f
 exec: address = ff202008
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202008 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 40-02-20-fe-7f
 exec: address = ff200240
+
+pracc_exec_read:
 exec: read address ff200240 -> ac240010
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-10-00-24-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 0c-20-20-fe-7f
 exec: address = ff20200c
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff20200c := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 44-02-20-fe-7f
 exec: address = ff200244
+
+pracc_exec_read:
 exec: read address ff200244 -> ac250014
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-14-00-25-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 10-20-20-fe-7f
 exec: address = ff202010
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202010 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 48-02-20-fe-7f
 exec: address = ff200248
+
+pracc_exec_read:
 exec: read address ff200248 -> ac260018
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-18-00-26-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 14-20-20-fe-7f
 exec: address = ff202014
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202014 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 4c-02-20-fe-7f
 exec: address = ff20024c
+
+pracc_exec_read:
 exec: read address ff20024c -> ac27001c
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-1c-00-27-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 18-20-20-fe-7f
 exec: address = ff202018
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202018 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 50-02-20-fe-7f
 exec: address = ff200250
+
+pracc_exec_read:
 exec: read address ff200250 -> ac280020
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-20-00-28-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 1c-20-20-fe-7f
 exec: address = ff20201c
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff20201c := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 54-02-20-fe-7f
 exec: address = ff200254
+
+pracc_exec_read:
 exec: read address ff200254 -> ac290024
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-24-00-29-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 20-20-20-fe-7f
 exec: address = ff202020
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202020 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 58-02-20-fe-7f
 exec: address = ff200258
+
+pracc_exec_read:
 exec: read address ff200258 -> ac2a0028
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-28-00-2a-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 24-20-20-fe-7f
 exec: address = ff202024
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202024 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 5c-02-20-fe-7f
 exec: address = ff20025c
+
+pracc_exec_read:
 exec: read address ff20025c -> ac2b002c
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-2c-00-2b-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 28-20-20-fe-7f
 exec: address = ff202028
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202028 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 60-02-20-fe-7f
 exec: address = ff200260
+
+pracc_exec_read:
 exec: read address ff200260 -> ac2c0030
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-30-00-2c-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 2c-20-20-fe-7f
 exec: address = ff20202c
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff20202c := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 64-02-20-fe-7f
 exec: address = ff200264
+
+pracc_exec_read:
 exec: read address ff200264 -> ac2d0034
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-34-00-2d-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 30-20-20-fe-7f
 exec: address = ff202030
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202030 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 68-02-20-fe-7f
 exec: address = ff200268
+
+pracc_exec_read:
 exec: read address ff200268 -> ac2e0038
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-38-00-2e-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 34-20-20-fe-7f
 exec: address = ff202034
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202034 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 6c-02-20-fe-7f
 exec: address = ff20026c
+
+pracc_exec_read:
 exec: read address ff20026c -> ac300040
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-40-00-30-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 38-20-20-fe-7f
 exec: address = ff202038
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202038 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 70-02-20-fe-7f
 exec: address = ff200270
+
+pracc_exec_read:
 exec: read address ff200270 -> ac310044
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-44-00-31-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 40-20-20-fe-7f
 exec: address = ff202040
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202040 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 74-02-20-fe-7f
 exec: address = ff200274
+
+pracc_exec_read:
 exec: read address ff200274 -> ac320048
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-48-00-32-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 44-20-20-fe-7f
 exec: address = ff202044
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202044 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 78-02-20-fe-7f
 exec: address = ff200278
+
+pracc_exec_read:
 exec: read address ff200278 -> ac33004c
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-4c-00-33-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 48-20-20-fe-7f
 exec: address = ff202048
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202048 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 7c-02-20-fe-7f
 exec: address = ff20027c
+
+pracc_exec_read:
 exec: read address ff20027c -> ac340050
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-50-00-34-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 4c-20-20-fe-7f
 exec: address = ff20204c
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff20204c := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 80-02-20-fe-7f
 exec: address = ff200280
+
+pracc_exec_read:
 exec: read address ff200280 -> ac350054
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-54-00-35-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 50-20-20-fe-7f
 exec: address = ff202050
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202050 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 84-02-20-fe-7f
 exec: address = ff200284
+
+pracc_exec_read:
 exec: read address ff200284 -> ac360058
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-58-00-36-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 54-20-20-fe-7f
 exec: address = ff202054
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202054 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 88-02-20-fe-7f
 exec: address = ff200288
+
+pracc_exec_read:
 exec: read address ff200288 -> ac37005c
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-5c-00-37-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 58-20-20-fe-7f
 exec: address = ff202058
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202058 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 8c-02-20-fe-7f
 exec: address = ff20028c
+
+pracc_exec_read:
 exec: read address ff20028c -> ac380060
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-60-00-38-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 5c-20-20-fe-7f
 exec: address = ff20205c
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff20205c := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 90-02-20-fe-7f
 exec: address = ff200290
+
+pracc_exec_read:
 exec: read address ff200290 -> ac390064
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-64-00-39-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 60-20-20-fe-7f
 exec: address = ff202060
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202060 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 94-02-20-fe-7f
 exec: address = ff200294
+
+pracc_exec_read:
 exec: read address ff200294 -> ac3a0068
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-68-00-3a-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 64-20-20-fe-7f
 exec: address = ff202064
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202064 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 98-02-20-fe-7f
 exec: address = ff200298
+
+pracc_exec_read:
 exec: read address ff200298 -> ac3b006c
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-6c-00-3b-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 68-20-20-fe-7f
 exec: address = ff202068
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202068 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 9c-02-20-fe-7f
 exec: address = ff20029c
+
+pracc_exec_read:
 exec: read address ff20029c -> ac3c0070
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-70-00-3c-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 6c-20-20-fe-7f
 exec: address = ff20206c
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff20206c := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: a0-02-20-fe-7f
 exec: address = ff2002a0
+
+pracc_exec_read:
 exec: read address ff2002a0 -> ac3d0074
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-74-00-3d-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 70-20-20-fe-7f
 exec: address = ff202070
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202070 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: a4-02-20-fe-7f
 exec: address = ff2002a4
+
+pracc_exec_read:
 exec: read address ff2002a4 -> ac3e0078
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-78-00-3e-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 74-20-20-fe-7f
 exec: address = ff202074
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202074 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: a8-02-20-fe-7f
 exec: address = ff2002a8
+
+pracc_exec_read:
 exec: read address ff2002a8 -> ac3f007c
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-7c-00-3f-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 78-20-20-fe-7f
 exec: address = ff202078
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202078 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: ac-02-20-fe-7f
 exec: address = ff2002ac
+
+pracc_exec_read:
 exec: read address ff2002ac -> 40026000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-60-02-1b-06-40-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 7c-20-20-fe-7f
 exec: address = ff20207c
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff20207c := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: b0-02-20-fe-7f
 exec: address = ff2002b0
+
+pracc_exec_read:
 exec: read address ff2002b0 -> ac220080
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-80-00-22-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: b4-02-20-fe-7f
 exec: address = ff2002b4
+
+pracc_exec_read:
 exec: read address ff2002b4 -> 00001012
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-12-10-00-1b-06-00-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 80-20-20-fe-7f
 exec: address = ff202080
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 06-00-50-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202080 := 00500006
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: b8-02-20-fe-7f
 exec: address = ff2002b8
+
+pracc_exec_read:
 exec: read address ff2002b8 -> ac220084
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-84-00-22-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: bc-02-20-fe-7f
 exec: address = ff2002bc
+
+pracc_exec_read:
 exec: read address ff2002bc -> 00001010
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-10-10-00-1b-06-00-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 84-20-20-fe-7f
 exec: address = ff202084
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202084 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: c0-02-20-fe-7f
 exec: address = ff2002c0
+
+pracc_exec_read:
 exec: read address ff2002c0 -> ac220088
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-88-00-22-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: c4-02-20-fe-7f
 exec: address = ff2002c4
+
+pracc_exec_read:
 exec: read address ff2002c4 -> 40024000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-40-02-1b-06-40-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 88-20-20-fe-7f
 exec: address = ff202088
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202088 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: c8-02-20-fe-7f
 exec: address = ff2002c8
+
+pracc_exec_read:
 exec: read address ff2002c8 -> ac22008c
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-8c-00-22-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: cc-02-20-fe-7f
 exec: address = ff2002cc
+
+pracc_exec_read:
 exec: read address ff2002cc -> 40026800
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-68-02-1b-06-40-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 8c-20-20-fe-7f
 exec: address = ff20208c
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-80-60
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff20208c := c0000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: d0-02-20-fe-7f
 exec: address = ff2002d0
+
+pracc_exec_read:
 exec: read address ff2002d0 -> ac220090
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-90-00-22-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: d4-02-20-fe-7f
 exec: address = ff2002d4
+
+pracc_exec_read:
 exec: read address ff2002d4 -> 4002c000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-02-1b-06-40-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 90-20-20-fe-7f
 exec: address = ff202090
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 08-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202090 := 00000008
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: d8-02-20-fe-7f
 exec: address = ff2002d8
+
+pracc_exec_read:
 exec: read address ff2002d8 -> ac220094
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-94-00-22-1b-06-ac-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: dc-02-20-fe-7f
 exec: address = ff2002dc
+
+pracc_exec_read:
 exec: read address ff2002dc -> 8de20000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-e2-1b-06-8d-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 94-20-20-fe-7f
 exec: address = ff202094
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
-mpsse_flush_output received 5 bytes: 7c-e3-c1-7f-5f
+mpsse_flush_output received 5 bytes: b4-4b-db-7f-5f
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
-exec: write address ff202094 := bfc1e37c
+exec: write address ff202094 := bfdb4bb4
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: e0-02-20-fe-7f
 exec: address = ff2002e0
+
+pracc_exec_read:
 exec: read address ff2002e0 -> 8de10000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-e1-1b-06-8d-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-40-20-fe-7f
 exec: address = ff204000
+
+pracc_exec_read:
 exec: read address ff204000 -> 00000000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-00-1b-06-00-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: e4-02-20-fe-7f
 exec: address = ff2002e4
+
+pracc_exec_read:
 exec: read address ff2002e4 -> 1000ffc6
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-c6-ff-00-1b-06-10-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-40-20-fe-7f
 exec: address = ff204000
+
+pracc_exec_read:
 exec: read address ff204000 -> 00000000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-00-1b-06-00-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: e8-02-20-fe-7f
 exec: address = ff2002e8
+
+pracc_exec_read:
 exec: read address ff2002e8 -> 400ff800
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-f8-0f-1b-06-40-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-02-20-fe-7f
 exec: address = ff200200
+
+target_read_word
+
+mpsse_exec:
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-02-20-fe-7f
 exec: address = ff200200
+
+pracc_exec_read:
 exec: read address ff200200 -> 408ff800
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-f8-8f-1b-06-40-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 04-02-20-fe-7f
 exec: address = ff200204
+
+pracc_exec_read:
 exec: read address ff200204 -> 3c0fff20
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-20-ff-0f-1b-06-3c-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 08-02-20-fe-7f
 exec: address = ff200208
+
+pracc_exec_read:
 exec: read address ff200208 -> 35ef4000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-40-ef-1b-06-35-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 0c-02-20-fe-7f
 exec: address = ff20020c
+
+pracc_exec_read:
 exec: read address ff20020c -> ade80000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-e8-1b-06-ad-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 10-02-20-fe-7f
 exec: address = ff200210
+
+pracc_exec_read:
 exec: read address ff200210 -> 8de8d000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-d0-e8-1b-06-8d-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-40-20-fe-7f
 exec: address = ff204000
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff204000 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 14-02-20-fe-7f
 exec: address = ff200214
+
+pracc_exec_read:
 exec: read address ff200214 -> 8d080000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-08-1b-06-8d-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-10-20-fe-7f
 exec: address = ff201000
+
+pracc_exec_read:
 exec: read address ff201000 -> ff300000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-30-1b-06-ff-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 18-02-20-fe-7f
 exec: address = ff200218
+
+pracc_exec_read:
 exec: read address ff200218 -> ade8e000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-e0-e8-1b-06-ad-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 1c-02-20-fe-7f
 exec: address = ff20021c
+
+pracc_exec_read:
 exec: read address ff20021c -> 8de80000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-e8-1b-06-8d-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-20-20-fe-7f
 exec: address = ff202000
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 1b-c2-47-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202000 := 0047c21b
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 20-02-20-fe-7f
 exec: address = ff200220
+
+pracc_exec_read:
 exec: read address ff200220 -> 1000fff7
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-f7-ff-00-1b-06-10-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-40-20-fe-7f
 exec: address = ff204000
+
+pracc_exec_read:
 exec: read address ff204000 -> 00000000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-00-1b-06-00-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 24-02-20-fe-7f
 exec: address = ff200224
+
+pracc_exec_read:
 exec: read address ff200224 -> 400ff800
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-f8-0f-1b-06-40-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-02-20-fe-7f
 exec: address = ff200200
+
+target_read_word
+
+mpsse_exec:
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-02-20-fe-7f
 exec: address = ff200200
+
+pracc_exec_read:
 exec: read address ff200200 -> 408ff800
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-f8-8f-1b-06-40-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 04-02-20-fe-7f
 exec: address = ff200204
+
+pracc_exec_read:
 exec: read address ff200204 -> 3c0fff20
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-20-ff-0f-1b-06-3c-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 08-02-20-fe-7f
 exec: address = ff200208
+
+pracc_exec_read:
 exec: read address ff200208 -> 35ef4000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-40-ef-1b-06-35-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 0c-02-20-fe-7f
 exec: address = ff20020c
+
+pracc_exec_read:
 exec: read address ff20020c -> ade80000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-e8-1b-06-ad-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 10-02-20-fe-7f
 exec: address = ff200210
+
+pracc_exec_read:
 exec: read address ff200210 -> 8de8d000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-d0-e8-1b-06-8d-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-40-20-fe-7f
 exec: address = ff204000
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff204000 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 14-02-20-fe-7f
 exec: address = ff200214
+
+pracc_exec_read:
 exec: read address ff200214 -> 8d080000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-08-1b-06-8d-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-10-20-fe-7f
 exec: address = ff201000
+
+pracc_exec_read:
 exec: read address ff201000 -> ff301000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-10-30-1b-06-ff-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 18-02-20-fe-7f
 exec: address = ff200218
+
+pracc_exec_read:
 exec: read address ff200218 -> ade8e000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-e0-e8-1b-06-ad-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 1c-02-20-fe-7f
 exec: address = ff20021c
+
+pracc_exec_read:
 exec: read address ff20021c -> 8de80000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-e8-1b-06-8d-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-20-20-fe-7f
 exec: address = ff202000
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-84-21
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202000 := 42000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 20-02-20-fe-7f
 exec: address = ff200220
+
+pracc_exec_read:
 exec: read address ff200220 -> 1000fff7
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-f7-ff-00-1b-06-10-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-40-20-fe-7f
 exec: address = ff204000
+
+pracc_exec_read:
 exec: read address ff204000 -> 00000000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-00-1b-06-00-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 24-02-20-fe-7f
 exec: address = ff200224
+
+pracc_exec_read:
 exec: read address ff200224 -> 400ff800
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-f8-0f-1b-06-40-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-02-20-fe-7f
 exec: address = ff200200
+
+target_write_word
+
+mpsse_exec:
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-02-20-fe-7f
 exec: address = ff200200
+
+pracc_exec_read:
 exec: read address ff200200 -> 408ff800
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-f8-8f-1b-06-40-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 04-02-20-fe-7f
 exec: address = ff200204
+
+pracc_exec_read:
 exec: read address ff200204 -> 3c0fff20
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-20-ff-0f-1b-06-3c-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 08-02-20-fe-7f
 exec: address = ff200208
+
+pracc_exec_read:
 exec: read address ff200208 -> 35ef4000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-40-ef-1b-06-35-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 0c-02-20-fe-7f
 exec: address = ff20020c
+
+pracc_exec_read:
 exec: read address ff20020c -> ade80000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-e8-1b-06-ad-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 10-02-20-fe-7f
 exec: address = ff200210
+
+pracc_exec_read:
 exec: read address ff200210 -> ade90000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-e9-1b-06-ad-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-40-20-fe-7f
 exec: address = ff204000
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff204000 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 14-02-20-fe-7f
 exec: address = ff200214
+
+pracc_exec_read:
 exec: read address ff200214 -> 8de8d004
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-04-d0-e8-1b-06-8d-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-40-20-fe-7f
 exec: address = ff204000
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff204000 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 18-02-20-fe-7f
 exec: address = ff200218
+
+pracc_exec_read:
 exec: read address ff200218 -> 8de9d000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-d0-e9-1b-06-8d-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 04-10-20-fe-7f
 exec: address = ff201004
+
+pracc_exec_read:
 exec: read address ff201004 -> 00000000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-00-1b-06-00-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 1c-02-20-fe-7f
 exec: address = ff20021c
+
+pracc_exec_read:
 exec: read address ff20021c -> ad280000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-28-1b-06-ad-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-10-20-fe-7f
 exec: address = ff201000
+
+pracc_exec_read:
 exec: read address ff201000 -> ff301000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-10-30-1b-06-ff-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 20-02-20-fe-7f
 exec: address = ff200220
+
+pracc_exec_read:
 exec: read address ff200220 -> 8de90000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-e9-1b-06-8d-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 24-02-20-fe-7f
 exec: address = ff200224
+
+pracc_exec_read:
 exec: read address ff200224 -> 8de80000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-e8-1b-06-8d-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-40-20-fe-7f
 exec: address = ff204000
+
+pracc_exec_read:
 exec: read address ff204000 -> 00000000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-00-1b-06-00-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 28-02-20-fe-7f
 exec: address = ff200228
+
+pracc_exec_read:
 exec: read address ff200228 -> 1000fff5
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-f5-ff-00-1b-06-10-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-40-20-fe-7f
 exec: address = ff204000
+
+pracc_exec_read:
 exec: read address ff204000 -> 00000000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-00-1b-06-00-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 2c-02-20-fe-7f
 exec: address = ff20022c
+
+pracc_exec_read:
 exec: read address ff20022c -> 400ff800
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-f8-0f-1b-06-40-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-02-20-fe-7f
 exec: address = ff200200
 target_write_word: 00000000 to address ff301000
+
+target_read_word
+
+mpsse_exec:
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-02-20-fe-7f
 exec: address = ff200200
+
+pracc_exec_read:
 exec: read address ff200200 -> 408ff800
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-f8-8f-1b-06-40-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 04-02-20-fe-7f
 exec: address = ff200204
+
+pracc_exec_read:
 exec: read address ff200204 -> 3c0fff20
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-20-ff-0f-1b-06-3c-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 08-02-20-fe-7f
 exec: address = ff200208
+
+pracc_exec_read:
 exec: read address ff200208 -> 35ef4000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-40-ef-1b-06-35-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 0c-02-20-fe-7f
 exec: address = ff20020c
+
+pracc_exec_read:
 exec: read address ff20020c -> ade80000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-e8-1b-06-ad-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 10-02-20-fe-7f
 exec: address = ff200210
+
+pracc_exec_read:
 exec: read address ff200210 -> 8de8d000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-d0-e8-1b-06-8d-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-40-20-fe-7f
 exec: address = ff204000
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff204000 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 14-02-20-fe-7f
 exec: address = ff200214
+
+pracc_exec_read:
 exec: read address ff200214 -> 8d080000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-08-1b-06-8d-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-10-20-fe-7f
 exec: address = ff201000
+
+pracc_exec_read:
 exec: read address ff201000 -> ff302000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-20-30-1b-06-ff-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 18-02-20-fe-7f
 exec: address = ff200218
+
+pracc_exec_read:
 exec: read address ff200218 -> ade8e000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-e0-e8-1b-06-ad-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 1c-02-20-fe-7f
 exec: address = ff20021c
+
+pracc_exec_read:
 exec: read address ff20021c -> 8de80000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-e8-1b-06-8d-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-20-20-fe-7f
 exec: address = ff202000
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-82-20
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202000 := 41000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 20-02-20-fe-7f
 exec: address = ff200220
+
+pracc_exec_read:
 exec: read address ff200220 -> 1000fff7
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-f7-ff-00-1b-06-10-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-40-20-fe-7f
 exec: address = ff204000
+
+pracc_exec_read:
 exec: read address ff204000 -> 00000000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-00-1b-06-00-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 24-02-20-fe-7f
 exec: address = ff200224
+
+pracc_exec_read:
 exec: read address ff200224 -> 400ff800
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-f8-0f-1b-06-40-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-02-20-fe-7f
 exec: address = ff200200
+
+target_write_word
+
+mpsse_exec:
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-02-20-fe-7f
 exec: address = ff200200
+
+pracc_exec_read:
 exec: read address ff200200 -> 408ff800
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-f8-8f-1b-06-40-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 04-02-20-fe-7f
 exec: address = ff200204
+
+pracc_exec_read:
 exec: read address ff200204 -> 3c0fff20
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-20-ff-0f-1b-06-3c-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 08-02-20-fe-7f
 exec: address = ff200208
+
+pracc_exec_read:
 exec: read address ff200208 -> 35ef4000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-40-ef-1b-06-35-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 0c-02-20-fe-7f
 exec: address = ff20020c
+
+pracc_exec_read:
 exec: read address ff20020c -> ade80000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-e8-1b-06-ad-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 10-02-20-fe-7f
 exec: address = ff200210
+
+pracc_exec_read:
 exec: read address ff200210 -> ade90000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-e9-1b-06-ad-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-40-20-fe-7f
 exec: address = ff204000
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff204000 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 14-02-20-fe-7f
 exec: address = ff200214
+
+pracc_exec_read:
 exec: read address ff200214 -> 8de8d004
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-04-d0-e8-1b-06-8d-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-40-20-fe-7f
 exec: address = ff204000
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff204000 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 18-02-20-fe-7f
 exec: address = ff200218
+
+pracc_exec_read:
 exec: read address ff200218 -> 8de9d000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-d0-e9-1b-06-8d-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 04-10-20-fe-7f
 exec: address = ff201004
+
+pracc_exec_read:
 exec: read address ff201004 -> 00000000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-00-1b-06-00-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 1c-02-20-fe-7f
 exec: address = ff20021c
+
+pracc_exec_read:
 exec: read address ff20021c -> ad280000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-28-1b-06-ad-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-10-20-fe-7f
 exec: address = ff201000
+
+pracc_exec_read:
 exec: read address ff201000 -> ff302000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-20-30-1b-06-ff-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 20-02-20-fe-7f
 exec: address = ff200220
+
+pracc_exec_read:
 exec: read address ff200220 -> 8de90000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-e9-1b-06-8d-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 24-02-20-fe-7f
 exec: address = ff200224
+
+pracc_exec_read:
 exec: read address ff200224 -> 8de80000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-e8-1b-06-8d-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-40-20-fe-7f
 exec: address = ff204000
+
+pracc_exec_read:
 exec: read address ff204000 -> 00000000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-00-1b-06-00-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 28-02-20-fe-7f
 exec: address = ff200228
+
+pracc_exec_read:
 exec: read address ff200228 -> 1000fff5
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-f5-ff-00-1b-06-10-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-40-20-fe-7f
 exec: address = ff204000
+
+pracc_exec_read:
 exec: read address ff204000 -> 00000000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-00-1b-06-00-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 2c-02-20-fe-7f
 exec: address = ff20022c
+
+pracc_exec_read:
 exec: read address ff20022c -> 400ff800
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-f8-0f-1b-06-40-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-02-20-fe-7f
 exec: address = ff200200
 target_write_word: 00000000 to address ff302000
 hardware: 2 breakpoints, 1 watchpoints
+
+target_read_cop0_register
+
+mpsse_exec:
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-02-20-fe-7f
 exec: address = ff200200
+
+pracc_exec_read:
 exec: read address ff200200 -> 408ff800
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-f8-8f-1b-06-40-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 04-02-20-fe-7f
 exec: address = ff200204
+
+pracc_exec_read:
 exec: read address ff200204 -> 3c0fff20
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-20-ff-0f-1b-06-3c-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 08-02-20-fe-7f
 exec: address = ff200208
+
+pracc_exec_read:
 exec: read address ff200208 -> 35ef4000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-40-ef-1b-06-35-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 0c-02-20-fe-7f
 exec: address = ff20020c
+
+pracc_exec_read:
 exec: read address ff20020c -> ade80000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-e8-1b-06-ad-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 10-02-20-fe-7f
 exec: address = ff200210
+
+pracc_exec_read:
 exec: read address ff200210 -> 40087800
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-78-08-1b-06-40-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-40-20-fe-7f
 exec: address = ff204000
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-00-00-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff204000 := 00000000
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 14-02-20-fe-7f
 exec: address = ff200214
+
+pracc_exec_read:
 exec: read address ff200214 -> ade8e000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-e0-e8-1b-06-ad-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 18-02-20-fe-7f
 exec: address = ff200218
+
+pracc_exec_read:
 exec: read address ff200218 -> 8de80000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-e8-1b-06-8d-4b-01-83-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-0c-80-20
 exec: ctl = 400cc008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-20-20-fe-7f
 exec: address = ff202000
+
+pracc_exec_write:
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 60-9e-01-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
 exec: write address ff202000 := 00019e60
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 1c-02-20-fe-7f
 exec: address = ff20021c
+
+pracc_exec_read:
 exec: read address ff20021c -> 1000fff8
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-f8-ff-00-1b-06-10-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-40-20-fe-7f
 exec: address = ff204000
+
+pracc_exec_read:
 exec: read address ff204000 -> 00000000
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-00-00-1b-06-00-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 20-02-20-fe-7f
 exec: address = ff200220
+
+pracc_exec_read:
 exec: read address ff200220 -> 400ff800
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-f8-0f-1b-06-40-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-02-20-fe-7f
 exec: address = ff200200
@@ -1730,26 +6835,68 @@ SchoolMIPSdebug: we got junk - 0xFD
 SchoolMIPSdebug: Control-C received
 SchoolMIPSdebug: error while reading from GDB
 SchoolMIPSdebug: debugger has terminated connection
+
+mpsse_exec:
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 08-c0-04-80-20
 exec: ctl = 4004c008
+
+mpsse_send
+
+ETAP_ADDRESS
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-08-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-00-00-3b-06-00-6b-01-03-4b-00-00
 mpsse_flush_output received 5 bytes: 00-02-20-fe-7f
 exec: address = ff200200
+
+pracc_exec_read:
 exec: read address ff200200 -> 4200001f
+
+mpsse_send
+
+ETAP_DATA
+
+mpsse_send
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 60 bytes: 4b-03-03-1b-03-09-4b-01-03-4b-00-00-4b-02-01-19-02-00-1f-00-00-1b-06-42-4b-01-03-4b-00-00-4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-19-02-00-00-c0-00-1b-06-80-4b-01-83-4b-00-00
+
+mpsse_send
+
+ETAP_CONTROL
+
+mpsse_send
 usb bulk write 30 bytes: 4b-03-03-1b-03-0a-4b-01-03-4b-00-00-4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 00-c0-00-00-00
 exec: ctl = 0000c000
+
+mpsse_send
 usb bulk write 18 bytes: 4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 00-c0-00-00-00
 exec: ctl = 0000c000
+
+mpsse_send
 usb bulk write 18 bytes: 4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 00-c0-00-00-00
 exec: ctl = 0000c000
+
+mpsse_send
 usb bulk write 18 bytes: 4b-02-01-39-02-00-00-c0-04-3b-06-80-6b-01-83-4b-00-00
 mpsse_flush_output received 5 bytes: 00-c0-00-00-00
 exec: ctl = 0000c000
+
+mpsse_send
 usb bulk write 3 bytes: 4b-05-1f
 usb bulk write 3 bytes: 80-08-1b
 usb bulk write 3 bytes: 82-03-0f

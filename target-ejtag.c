@@ -490,6 +490,9 @@ static void target_save_state (target_t *t)
         MIPS_NOP,
     };
 
+    fprintf(file, "\ntarget_save_state\n");
+    fflush(file);
+    
     t->adapter->exec (t->adapter, 1, ARRAY_SIZE(code), code,
         0, 0, ARRAY_SIZE(t->reg), t->reg);
     t->restore_depc = 0;
@@ -922,6 +925,8 @@ void target_restart (target_t *t)
  */
 void target_step (target_t *t)
 {
+    fprintf(file, "\ntarget_step\n");
+    fflush(file);
     static const unsigned code_step[] = {
         MIPS_MTC0 (1, 31, 0),			/* move $1 to COP0 DeSave */
         MIPS_MFC0 (1, 23, 0),			/* move COP0 Debug to $1 */
@@ -984,6 +989,8 @@ void target_step (target_t *t)
  */
 unsigned target_read_word (target_t *t, unsigned addr)
 {
+    fprintf(file, "\ntarget_read_word\n");
+    fflush(file);
     static const unsigned code[] = {            /* start: */
         MIPS_MTC0 (15, 31, 0),                  /* move $15 to COP0 DeSave */
         MIPS_LUI (15, UPPER16(PRACC_STACK)),	/* $15 = PRACC_STACK */
@@ -1022,6 +1029,8 @@ unsigned target_read_word (target_t *t, unsigned addr)
 void target_read_block (target_t *t, unsigned addr,
     unsigned nwords, unsigned *data)
 {
+    fprintf(file, "\ntarget_read_block\n");
+    fflush(file);
     if (nwords == 1) {
         *data = target_read_word (t, addr);
         return;
@@ -1099,6 +1108,8 @@ void target_read_block (target_t *t, unsigned addr,
  */
 void target_write_word (target_t *t, unsigned addr, unsigned word)
 {
+    fprintf(file, "\ntarget_write_word\n");
+    fflush(file);
     static const unsigned code[] = {            /* start: */
         MIPS_MTC0 (15, 31, 0),                  /* move $15 to COP0 DeSave */
         MIPS_LUI (15, UPPER16(PRACC_STACK)),	/* $15 = PRACC_STACK */
@@ -1143,6 +1154,8 @@ void target_write_word (target_t *t, unsigned addr, unsigned word)
  */
 void target_cache_flush (target_t *t, unsigned addr)
 {
+    fprintf(file, "\ntarget_cache_flush\n");
+    fflush(file);
     static const unsigned code[] = {            /* start: */
         MIPS_MTC0 (15, 31, 0),                  /* move $15 to COP0 DeSave */
         MIPS_LUI (15, UPPER16(PRACC_STACK)),	/* $15 = PRACC_STACK */
@@ -1185,6 +1198,8 @@ void target_cache_flush (target_t *t, unsigned addr)
 void target_write_block (target_t *t, unsigned addr,
     unsigned nwords, unsigned *data)
 {
+    fprintf(file, "\ntarget_write_block\n");
+    fflush(file);
     static const unsigned code[] = {            /* start: */
         MIPS_MTC0 (15, 31, 0),                  /* move $15 to COP0 DeSave */
         MIPS_LUI (15, UPPER16(PRACC_STACK)),	/* $15 = PRACC_STACK */
@@ -1248,6 +1263,8 @@ void target_write_block (target_t *t, unsigned addr,
  */
 void target_write_register (target_t *t, unsigned regno, unsigned val)
 {
+    fprintf(file, "\ntarget_write_register\n");
+    fflush(file);
     static unsigned code_gpr[] = {              /* start: */
         0,                                      /* lui regno, upper_val */
         MIPS_B (NEG16(2)),			/* b start */
@@ -1308,6 +1325,8 @@ void target_write_register (target_t *t, unsigned regno, unsigned val)
  */
 unsigned target_read_cop0_register (target_t *t, unsigned regno, unsigned sel)
 {
+    fprintf(file, "\ntarget_read_cop0_register\n");
+    fflush(file);
     static unsigned code[] = {                  /* start: */
         MIPS_MTC0 (15, 31, 0),                  /* move $15 to COP0 DeSave */
         MIPS_LUI (15, UPPER16(PRACC_STACK)),	/* $15 = PRACC_STACK */
@@ -1335,6 +1354,8 @@ unsigned target_read_cop0_register (target_t *t, unsigned regno, unsigned sel)
  */
 void target_add_break (target_t *t, unsigned addr, int type)
 {
+    fprintf(file, "\ntarget_add_break\n");
+    fflush(file);
     int i, control, last;
     unsigned last_id;
 
@@ -1435,6 +1456,8 @@ void target_add_break (target_t *t, unsigned addr, int type)
 void target_remove_break (target_t *t, unsigned addr)
 {
     int i;
+    fprintf(file, "\ntarget_remove_break\n");
+    fflush(file);
 
     for (i=0; i<t->nbpoints; i++) {
         if (t->bp_used[i] && t->bp_value[i] == addr) {
