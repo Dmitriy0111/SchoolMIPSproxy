@@ -1,0 +1,16 @@
+                           .data:ff200200 40 8f f8 00                      mtc0	t7,c0_desave
+                           .data:ff200204 3c 0f ff 20                      lui	t7,0xff20
+                           .data:ff200208 35 ef 40 00                      ori	t7,t7,0x4000
+                           .data:ff20020c ad e8 00 00                      sw	t0,0(t7)
+                           .data:ff200210 ad e9 00 00                      sw	t1,0(t7)
+                           .data:ff200214 8d e8 d0 04                      lw	t0,-12284(t7)
+                           .data:ff200218 8d e9 d0 00                      lw	t1,-12288(t7)
+                           .data:ff20021c 00 00 00 00                      nop
+                           .data:ff200220 ad 28 00 00                      sw	t0,0(t1)
+                           .data:ff200224 ff 30 10 00                      sd	s0,4096(t9)
+                           .data:ff200228 8d e9 00 00                      lw	t1,0(t7)
+                           .data:ff20022c 8d e8 00 00                      lw	t0,0(t7)
+                           .data:ff200230 00 00 00 00                      nop
+                           .data:ff200234 10 00 ff f5                      b	0xff20020c
+                           .data:ff200238 00 00 00 00                      nop
+                           .data:ff20023c 40 0f f8 00                      mfc0	t7,c0_desave

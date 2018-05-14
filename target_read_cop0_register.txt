@@ -1,0 +1,10 @@
+                           .data:ff200200 40 8f f8 00                      mtc0	t7,c0_desave
+                           .data:ff200204 3c 0f ff 20                      lui	t7,0xff20
+                           .data:ff200208 35 ef 40 00                      ori	t7,t7,0x4000
+                           .data:ff20020c ad e8 00 00                      sw	t0,0(t7)
+                           .data:ff200210 40 08 78 00                      mfc0	t0,c0_prid
+                           .data:ff200214 ad e8 e0 00                      sw	t0,-8192(t7)
+                           .data:ff200218 8d e8 00 00                      lw	t0,0(t7)
+                           .data:ff20021c 10 00 ff f8                      b	0xff200200
+                           .data:ff200220 00 00 00 00                      nop
+                           .data:ff200224 40 0f f8 00                      mfc0	t7,c0_desave
